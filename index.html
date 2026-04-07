@@ -3,38 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GG Desarrollo Web | Ingeniería Digital</title>
+    <title>GG Desarrollo Web | Ingeniería Digital Regional y Global</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100;400;700&family=Inter:wght@300;500;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Geist Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            slate: '#020617', // bg-deep-slate
+                            cyan: '#22D3EE',  // cyan-400
+                            indigo: '#6366F1' // indigo-500
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #020617; }
+        .radial-glow {
+            background: radial-gradient(circle, rgba(34,211,238,0.08) 0%, rgba(2,6,23,0) 70%);
+        }
+    </style>
 </head>
-<body class="bg-slate-950">
+<body class="font-sans text-slate-300 antialiased">
 
-    <section class="bg-slate-950 text-white min-h-screen flex flex-col justify-center items-center px-6">
-      <div class="absolute w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
-      <header class="relative z-10 text-center space-y-6">
-        <h1 class="text-5xl md:text-7xl font-black tracking-tighter bg-gradient-to-r from-cyan-400 to-indigo-500 bg-clip-text text-transparent" style="font-family: 'Orbitron', sans-serif;">
-          GG DESARROLLO WEB
-        </h1>
-        <p class="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto font-light">
-          Ingeniería digital para marcas que no aceptan el segundo lugar. 
-          <span class="text-cyan-400 font-medium italic">Sin límites geográficos.</span>
-        </p>
-        <div class="flex flex-wrap justify-center gap-4 pt-8">
-          <button class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(34,211,238,0.4)]">
-            VER PROYECTOS
-          </button>
-          <button class="border border-slate-700 hover:border-cyan-500 px-8 py-4 rounded-full font-bold transition-all">
-            CONTACTAR AGENTE
-          <a href=https://wa.me/+5492227530526>
+    <nav class="fixed top-0 w-full z-50 bg-brand-slate/80 backdrop-blur-sm border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="font-mono text-cyan-400 font-bold tracking-widest text-sm">GG_WEB v3.1</span>
+            <div class="flex gap-6 text-xs uppercase tracking-wider font-medium text-slate-500">
+                <a href="#ingenieria" class="hover:text-cyan-400 transition">Ingeniería</a>
+                <a href="#servicios" class="hover:text-cyan-400 transition">Servicios</a>
+                <a href="#porfolio" class="hover:text-cyan-400 transition">Porfolio</a>
+                <a href="https://wa.me/5492227530526" class="hover:text-cyan-400 text-cyan-400 font-bold transition">Consultar</a>
+            </div>
         </div>
-      </header>
-      <footer class="absolute bottom-10 w-full px-10 flex justify-between text-[10px] uppercase tracking-widest text-slate-500 font-mono">
-        <div>Status: <span class="text-green-500 font-bold">Global Expansion Active</span></div>
-        <div>System: GG_v3.0.1</div>
-        <div>2026 &copy; Todos los derechos reservados</div>
-      </footer>
+    </nav>
+
+    <header id="ingenieria" class="relative min-h-screen flex flex-col justify-center items-center px-6 pt-24 overflow-hidden">
+        <div class="absolute inset-0 radial-glow z-0"></div>
+        <div class="relative z-10 text-center space-y-8 max-w-5xl">
+            <div class="inline-block border border-cyan-800 bg-cyan-950/20 px-4 py-1 rounded-full">
+                <span class="font-mono text-xs uppercase text-cyan-400 tracking-widest">Digitalizing Regional Potential</span>
+            </div>
+            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter bg-gradient-to-br from-white to-slate-500 bg-clip-text text-transparent">
+                Ingeniería digital de alto rendimiento.
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed">
+                Transformamos comercios y servicios locales en marcas digitales dominantes. Fusionamos arquitectura de software de vanguardia con estrategias de conversión para proyectar tu negocio sin fronteras operativas.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 pt-10">
+                <a href="#servicios" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-10 py-5 rounded-full font-bold transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(34,211,238,0.3)] text-lg">
+                    Explorar Capacidades
+                </a>
+                <a href="https://wa.me/5492227530526" class="border border-slate-700 hover:border-cyan-500 px-10 py-5 rounded-full font-bold transition-all text-lg">
+                    Agendar Consultoría
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-24 bg-slate-900 border-t border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-5 gap-16 items-center">
+            <div class="md:col-span-2 space-y-6">
+                <h2 class="text-4xl font-extrabold tracking-tight text-white">No hacemos páginas web.<br>Desarrollamos <span class="text-cyan-400">activos digitales.</span></h2>
+                <p class="text-slate-400">El mercado local está saturado de soluciones rústicas y plantillas lentas. En <strong class="text-white">GG Desarrollo Web</strong> aplicamos la filosofía de la ingeniería de software a cada proyecto. Buscamos optimización extrema, no simplicidad cosmética. Tu presencia digital debe ser el motor de tu crecimiento, no un gasto operativo.</p>
+            </div>
+            <div class="md:col-span-3 grid md:grid-cols-2 gap-8">
+                <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 space-y-4">
+                    <span class="font-mono text-cyan-400 text-3xl font-bold">A+</span>
+                    <h4 class="text-white font-bold text-lg">Performance Élite</h4>
+                    <p class="text-slate-500 text-sm">Páginas que cargan en menos de 1 segundo. Cero "bloqueo" en mobile. Optimizamos cada milisegundo para garantizar la retención del usuario.</p>
+                </div>
+                <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 space-y-4">
+                    <span class="font-mono text-cyan-400 text-3xl font-bold">100%</span>
+                    <h4 class="text-white font-bold text-lg">Arquitectura Headless</h4>
+                    <p class="text-slate-500 text-sm">Separamos el frontend del backend (usando Astro/Next.js) para lograr una seguridad inquebrantable, velocidad absurda y escalabilidad total.</p>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <section id="servicios" class="py-32 relative">
+        <div class="absolute inset-0 radial-glow z-0"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 space-y-16">
+            <header class="text-center max-w-3xl mx-auto space-y-4">
+                <h3 class="text-5xl font-extrabold tracking-tight text-white">Ingeniería Digital de Autor</h3>
+                <p class="text-slate-400">Desglosamos nuestras capacidades técnicas aplicadas a resolver los desafíos comerciales de la región.</p>
+            </header>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 space-y-6 flex flex-col hover:border-cyan-800 transition group">
+                    <div class="border border-cyan-800 bg-cyan-950/20 w-12 h-12 rounded-xl flex items-center justify-center text-cyan-400 group-hover:scale-110 transition">⚡</div>
+                    <h4 class="text-white font-bold text-xl">Performance y Velocidad Regional</h4>
+                    <p class="text-slate-500 text-sm flex-grow">La velocidad es el factor #1 de conversión. En la región, donde la conectividad mobile puede ser inestable, tu web DEBE volar. Optimizamos el "Core Web Vitals" para indexación y experiencia de usuario élite.</p>
+                    <ul class="text-xs font-mono text-slate-600 space-y-2 pt-4 border-t border-slate-800">
+                        <li>[ ] Cero Layout Shift</li>
+                        <li>[ ] <100ms TBT (Total Blocking Time)</li>
+                        <li>[ ] Lighthouse Score > 95</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 space-y-6 flex flex-col hover:border-cyan-800 transition group">
+                    <div class="border border-indigo-800 bg-indigo-950/20 w-12 h-12 rounded-xl flex items-center justify-center text-indigo-400 group-hover:scale-110 transition">🎨</div>
+                    <h4 class="text-white font-bold text-xl">Diseño UI/UX Customizado</h4>
+                    <p class="text-slate-500 text-sm flex-grow">No usamos plantillas. Creamos interfaces UI (Interfaz de Usuario) únicas que proyectan la identidad de tu marca, y diseñamos UX (Experiencia de Usuario) orientada a la conversión quirúrgica.</p>
+                    <ul class="text-xs font-mono text-slate-600 space-y-2 pt-4 border-t border-slate-800">
+                        <li>[ ] Identidad Visual Exclusiva</li>
+                        <li>[ ] Optimización Mobile First</li>
+                        <li>[ ] Micro-interacciones Avanzadas</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 space-y-6 flex flex-col hover:border-cyan-800 transition group">
+                    <div class="border border-green-800 bg-green-950/20 w-12 h-12 rounded-xl flex items-center justify-center text-green-400 group-hover:scale-110 transition">🛒</div>
+                    <h4 class="text-white font-bold text-xl">Catálogos Interactivos e E-commerce</h4>
+                    <p class="text-slate-500 text-sm flex-grow">Digitalizamos tu stock rústico. Creamos sistemas donde el cliente puede filtrar y elegir productos de forma intuitiva, generando pedidos ya armados directamente a tu WhatsApp Bussines, optimizando tu ciclo de ventas.</p>
+                    <ul class="text-xs font-mono text-slate-600 space-y-2 pt-4 border-t border-slate-800">
+                        <li>[ ] Catálogos por Categorías</li>
+                        <li>[ ] WhatsApp Sales Integration</li>
+                        <li>[ ] Gestión de Stock Optimizada</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 space-y-6 flex flex-col hover:border-cyan-800 transition group">
+                    <div class="border border-amber-800 bg-amber-950/20 w-12 h-12 rounded-xl flex items-center justify-center text-amber-400 group-hover:scale-110 transition">🔍</div>
+                    <h4 class="text-white font-bold text-xl">SEO Técnico y Posicionamiento</h4>
+                    <p class="text-slate-500 text-sm flex-grow">No hacemos "dibujitos". Hacemos herramientas que Google ama. Estructuramos tus datos (Schema), optimizamos metadatos y garantizamos indexación avanzada para que aparezcas cuando tus clientes te buscan en la zona.</p>
+                    <ul class="text-xs font-mono text-slate-600 space-y-2 pt-4 border-t border-slate-800">
+                        <li>[ ] Arquitectura de Información</li>
+                        <li>[ ] Schema Structured Data</li>
+                        <li>[ ] Indexación Técnica Google</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="porfolio" class="py-24 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 space-y-16">
+            <header class="text-center max-w-3xl mx-auto space-y-4">
+                <h3 class="text-5xl font-extrabold tracking-tight text-white">Nuestra Ejecución en la Región</h3>
+                <p class="text-slate-400">No mostramos plantillas. Mostramos soluciones tecnológicas aplicadas a negocios reales en Navarro, Lobos, Mercedes y más allá.</p>
+            </header>
+            
+            <div class="grid md:grid-cols-3 gap-8 text-sm">
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 space-y-4 hover:border-cyan-800 transition">
+                    <span class="text-xs uppercase text-cyan-400 font-mono tracking-widest">[ CASO Automotriz ]</span>
+                    <h4 class="text-white font-bold text-xl">Catálogo de Alto Valor</h4>
+                    <p class="text-slate-500">Transformación del inventario físico en un Showroom Digital con visualización responsiva y CTA directa a ventas.</p>
+                    <div class="bg-slate-800 rounded-lg h-32 flex items-center justify-center text-slate-600 font-bold">PROTOTIPO_VISUAL</div>
+                </div>
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 space-y-4 hover:border-cyan-800 transition">
+                    <span class="text-xs uppercase text-green-400 font-mono tracking-widest">[ CASO Gastronomía ]</span>
+                    <h4 class="text-white font-bold text-xl">Sistema de Pedidos Rápidos</h4>
+                    <p class="text-slate-500">Optimización del flujo de reservas y pedidos mobile. Reducción del 80% del tiempo de chat por WhatsApp.</p>
+                    <div class="bg-slate-800 rounded-lg h-32 flex items-center justify-center text-slate-600 font-bold">PROTOTIPO_VISUAL</div>
+                </div>
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 space-y-4 hover:border-cyan-800 transition">
+                    <span class="text-xs uppercase text-amber-400 font-mono tracking-widest">[ CASO Industria ]</span>
+                    <h4 class="text-white font-bold text-xl">Plataforma Logística Local</h4>
+                    <p class="text-slate-500">Página de enlace regional centralizando accesos directos para compra de hacienda y ventas comerciales en planta.</p>
+                    <div class="bg-slate-800 rounded-lg h-32 flex items-center justify-center text-slate-600 font-bold">PROTOTIPO_VISUAL</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 relative text-center">
+        <div class="absolute inset-0 radial-glow z-0"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 space-y-8">
+            <h2 class="text-5xl font-extrabold tracking-tight text-white leading-tight">¿Listo para auditar tu potencial<br>digital en la región?</h2>
+            <p class="text-xl text-slate-400 max-w-2xl mx-auto font-light">
+                Mantenemos una capacidad operativa de desarrollo selectiva por mes. Agenda una auditoría técnica diagnóstica gratuita para evaluar el rendimiento de tu actual presencia digital y proyectar tu crecimiento.
+            </p>
+            <div class="pt-8 flex flex-wrap justify-center gap-4">
+                <a href="https://wa.me/5492227530526" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-10 py-5 rounded-full font-bold transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(34,211,238,0.3)] text-lg">
+                    Contactar Agente GG
+                </a>
+                <a href="#porfolio" class="border border-slate-700 hover:border-cyan-500 px-10 py-5 rounded-full font-bold transition-all text-lg text-white">
+                    Revisar Porfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest font-mono text-slate-600">
+            <div>2026 GG DESARROLLO WEB &trade; - All Systems Operational</div>
+            <div class="text-slate-700 text-center">
+                Soluciones Digitales Regionales para Interior de Buenos Aires<br>
+                <span class="text-green-950">Navarro // Lobos // Mercedes // Las Heras // Suipacha</span>
+            </div>
+            <div>STATUS: <span class="text-green-500 font-bold">Expanding Network</span></div>
+        </div>
+    </footer>
 
 </body>
 </html>
-
