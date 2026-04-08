@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GG Desarrollo — Ingeniería Digital de Alto Rendimiento</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cyan: #14b8a6;
+    --black: #000000;
+    --white: #ffffff;
+    --zinc-400: #a1a1aa;
+    --zinc-800: #27272a;
+    --zinc-900: #18181b;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: #000;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    cursor: crosshair;
+  }
+
+  h1, h2, h3, h4, .syne { font-family: 'Syne', sans-serif; }
+
+  /* Cursor */
+  .link-cursor { cursor: pointer; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 2px; }
+  ::-webkit-scrollbar-track { background: #000; }
+  ::-webkit-scrollbar-thumb { background: var(--cyan); }
+
+  /* Header glassmorphism */
+  .glass-header {
+    background: rgba(0,0,0,0.80);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid #18181b;
+  }
+
+  /* Hero big text */
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+  }
+
+  /* Marquee */
+  .marquee-track {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee 20s linear infinite;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Metric card */
+  .metric-card {
+    border: 1px solid #18181b;
+    transition: border-color 0.3s ease;
+  }
+  .metric-card:hover { border-color: var(--cyan); }
+
+  /* Portfolio cards */
+  .portfolio-item {
+    border-top: 1px solid #18181b;
+    transition: background 0.3s ease;
+  }
+  .portfolio-item:hover { background: #0a0a0a; }
+  .portfolio-item:hover .port-num { color: var(--cyan); }
+
+  /* Grayscale hover image */
+  .case-img {
+    filter: grayscale(100%) brightness(0.5);
+    transition: filter 0.5s ease, transform 0.5s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .img-wrap:hover .case-img {
+    filter: grayscale(0%) brightness(0.8);
+    transform: scale(1.03);
+  }
+
+  /* CTA button primary */
+  .btn-primary {
+    background: #fff;
+    color: #000;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 1px solid #fff;
+    transition: background 0.25s ease, color 0.25s ease;
+    cursor: pointer;
+  }
+  .btn-primary:hover {
+    background: var(--cyan);
+    color: #000;
+    border-color: var(--cyan);
+  }
+
+  /* CTA ghost button */
+  .btn-ghost {
+    background: transparent;
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 1px solid #27272a;
+    transition: border-color 0.25s ease, color 0.25s ease;
+    cursor: pointer;
+  }
+  .btn-ghost:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+  }
+
+  /* CTA section large button */
+  .btn-cta-large {
+    background: #000;
+    color: #000;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 2px solid #000;
+    background: #fff;
+    transition: background 0.3s, color 0.3s;
+    cursor: pointer;
+  }
+  .btn-cta-large:hover {
+    background: var(--cyan);
+    border-color: var(--cyan);
+    color: #000;
+  }
+
+  /* Noise overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* Scan line hero */
+  .scan-line {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.015) 2px,
+      rgba(255,255,255,0.015) 4px
+    );
+  }
+
+  /* Divider */
+  .divider { border-color: #18181b; }
+
+  /* Tag pill */
+  .tag {
+    background: #0d0d0d;
+    border: 1px solid #18181b;
+    color: var(--zinc-400);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* Cyan text */
+  .text-cyan { color: var(--cyan); }
+  .text-zinc-400 { color: var(--zinc-400); }
+
+  /* Vertical text */
+  .vert-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    letter-spacing: 0.25em;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: #3f3f46;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Stat number large */
+  .stat-big {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    color: var(--cyan);
+    line-height: 1;
+  }
+
+  /* Section label */
+  .section-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+
+  /* Underline hover link */
+  .underline-link {
+    position: relative;
+    display: inline-block;
+  }
+  .underline-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--cyan);
+    transition: width 0.3s ease;
+  }
+  .underline-link:hover::after { width: 100%; }
+
+  /* Portfolio case header */
+  .case-number {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 5rem;
+    line-height: 1;
+    color: #18181b;
+    transition: color 0.3s;
+  }
+
+  /* Process step */
+  .process-step {
+    border-left: 1px solid #18181b;
+    transition: border-color 0.3s;
+  }
+  .process-step:hover { border-color: var(--cyan); }
+
+  /* Fade in animation */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════ -->
+<header class="glass-header fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 flex items-center justify-between h-16">
+    <a href="#" class="syne font-extrabold text-base tracking-[0.25em] uppercase text-white link-cursor select-none">
+      GG DESARROLLO
+    </a>
+    <nav class="hidden md:flex items-center gap-10">
+      <a href="#filosofia" class="text-zinc-400 text-xs tracking-widest uppercase font-medium hover:text-white transition-colors underline-link link-cursor">Filosofía</a>
+      <a href="#portafolio" class="text-zinc-400 text-xs tracking-widest uppercase font-medium hover:text-white transition-colors underline-link link-cursor">Portafolio</a>
+      <a href="#proceso" class="text-zinc-400 text-xs tracking-widest uppercase font-medium hover:text-white transition-colors underline-link link-cursor">Proceso</a>
+    </nav>
+    <a href="#contacto" class="btn-primary px-6 py-2.5 text-xs tracking-widest link-cursor">
+      Agendar Auditoría
+    </a>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section class="scan-line relative min-h-screen flex flex-col justify-end pb-20 pt-32 px-6 lg:px-12 max-w-screen-2xl mx-auto">
+
+  <!-- Vertical side label -->
+  <div class="absolute left-6 top-1/2 -translate-y-1/2 hidden xl:block">
+    <span class="vert-text">GG Desarrollo — Buenos Aires — 2026</span>
+  </div>
+
+  <!-- Top line -->
+  <div class="flex items-center gap-4 mb-12 fade-in">
+    <span class="section-label">Ingeniería Digital</span>
+    <div class="flex-1 h-px bg-zinc-800 max-w-xs"></div>
+    <span class="text-zinc-400 text-xs font-mono tracking-widest">EST. 2021</span>
+  </div>
+
+  <!-- Hero headline -->
+  <div class="max-w-screen-xl fade-in" style="transition-delay: 0.1s;">
+    <h1 class="hero-title text-white">
+      <span class="block text-[clamp(3rem,9vw,9rem)]">Ingeniería Digital</span>
+      <span class="block text-[clamp(3rem,9vw,9rem)] text-zinc-400">de Alto</span>
+      <span class="block text-[clamp(3rem,9vw,9rem)] text-cyan">Rendimiento.</span>
+    </h1>
+  </div>
+
+  <!-- Hero bottom row -->
+  <div class="mt-16 flex flex-col lg:flex-row lg:items-end justify-between gap-10 fade-in" style="transition-delay:0.2s;">
+    <p class="text-zinc-400 text-base lg:text-lg font-light leading-relaxed max-w-2xl">
+      No construimos sitios web. Diseñamos infraestructura digital B2B y sistemas de adquisición para empresas que exigen rentabilidad y escalabilidad operativa.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="#portafolio" class="btn-primary px-8 py-4 text-sm tracking-widest link-cursor whitespace-nowrap">
+        Iniciar Diagnóstico Operativo
+      </a>
+      <a href="#filosofia" class="btn-ghost px-8 py-4 text-sm tracking-widest link-cursor whitespace-nowrap">
+        Ver Metodología
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+    <div class="w-px h-12 bg-gradient-to-b from-transparent via-zinc-700 to-zinc-600 animate-pulse"></div>
+  </div>
+</section>
+
+<!-- Marquee ticker -->
+<div class="border-y border-zinc-900 bg-zinc-950 py-4 overflow-hidden">
+  <div class="marquee-track">
+    <span class="text-zinc-600 text-xs tracking-[0.3em] uppercase font-mono mx-8">INGENIERÍA B2B</span>
+    <span class="text-cyan text-xs mx-8">—</span>
+    <span class="text-zinc-600 text-xs tracking-[0.3em] uppercase font-mono mx-8">SISTEMAS DE ADQUISICIÓN</span>
+    <span class="text-cyan text-xs mx-8">—</span>
+    <span class="text-zinc-600 text-xs tracking-[0.3em] uppercase font-mono mx-8">INFRAESTRUCTURA DIGITAL</span>
+    <span class="text-cyan text-xs mx-8">—</span>
+    <span class="text-zinc-600 text-xs tracking-[0.3em] uppercase font-mono mx-8">ESCALABILIDAD OPERATIVA</span>
+    <span class="text-cyan text-xs mx-8">—</span>
+    <span class="text-zinc-600 text-xs tracking-[0.3em] uppercase font-mono mx-8">ROI MEDIBLE</span>
+    <span class="text-cyan text-xs mx-8">—</span>
+    <span class="text-zinc-600 text-xs tracking-[0.3em] uppercase font-mono mx-8">CONVERSIÓN UX</span>
+    <span class="text-cyan text-xs mx-8">—</span>
+    <!-- repeat for seamless loop -->
+    <span class="text-zinc-600 text-xs tracking-[0.3em] uppercase font-mono mx-8">INGENIERÍA B2B</span>
+    <span class="text-cyan text-xs mx-8">—</span>
+    <span class="text-zinc-600 text-xs tracking-[0.3em] uppercase font-mono mx-8">SISTEMAS DE ADQUISICIÓN</span>
+    <span class="text-cyan text-xs mx-8">—</span>
+    <span class="text-zinc-600 text-xs tracking-[0.3em] uppercase font-mono mx-8">INFRAESTRUCTURA DIGITAL</span>
+    <span class="text-cyan text-xs mx-8">—</span>
+    <span class="text-zinc-600 text-xs tracking-[0.3em] uppercase font-mono mx-8">ESCALABILIDAD OPERATIVA</span>
+    <span class="text-cyan text-xs mx-8">—</span>
+    <span class="text-zinc-600 text-xs tracking-[0.3em] uppercase font-mono mx-8">ROI MEDIBLE</span>
+    <span class="text-cyan text-xs mx-8">—</span>
+    <span class="text-zinc-600 text-xs tracking-[0.3em] uppercase font-mono mx-8">CONVERSIÓN UX</span>
+    <span class="text-cyan text-xs mx-8">—</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     FILOSOFIA — THE GAP
+═══════════════════════════════════════════ -->
+<section id="filosofia" class="py-40 px-6 lg:px-12 max-w-screen-2xl mx-auto">
+
+  <div class="fade-in flex items-center gap-4 mb-20">
+    <span class="section-label">01 / Filosofía</span>
+    <div class="h-px bg-zinc-800 flex-1 max-w-xs"></div>
+  </div>
+
+  <div class="grid lg:grid-cols-2 gap-16 items-start">
+    <div class="fade-in">
+      <h2 class="syne font-extrabold text-white leading-tight mb-8" style="font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -0.03em;">
+        La brecha entre<br/>un folleto y<br/>una herramienta.
+      </h2>
+      <p class="text-zinc-400 text-base leading-relaxed mb-6">
+        La mayoría de las agencias entregan presencia digital. Nosotros construimos activos operativos. Cada proyecto nace de una pregunta central: ¿cómo impacta esto en el resultado de negocio?
+      </p>
+      <p class="text-zinc-400 text-base leading-relaxed mb-10">
+        No hay espacio para lo decorativo en nuestros sistemas. Cada componente tiene un propósito medible, cada flujo está diseñado para reducir fricción, acelerar la decisión de compra y maximizar el valor por sesión.
+      </p>
+      <a href="#contacto" class="btn-ghost inline-block px-8 py-4 text-sm tracking-widest link-cursor">
+        Evaluar Mi Infraestructura
+      </a>
+    </div>
+
+    <!-- Metric cards -->
+    <div class="fade-in space-y-4" style="transition-delay: 0.15s;">
+      <!-- Big metric -->
+      <div class="metric-card p-10 bg-zinc-950">
+        <div class="stat-big text-[4.5rem] mb-2">+60%</div>
+        <div class="text-white syne font-bold text-xl mb-3">Eficiencia Operativa</div>
+        <p class="text-zinc-400 text-sm leading-relaxed">Reducción documentada en tiempos de ciclo operativo en empresas que migran de procesos manuales a infraestructura digital integrada.</p>
+      </div>
+
+      <!-- Secondary metrics grid -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="metric-card p-6 bg-zinc-950">
+          <div class="stat-big text-4xl mb-2">3.8x</div>
+          <div class="text-white syne font-semibold text-sm mb-1">ROAS Promedio</div>
+          <p class="text-zinc-400 text-xs leading-relaxed">En campañas Meta integradas con funnels propios.</p>
+        </div>
+        <div class="metric-card p-6 bg-zinc-950">
+          <div class="stat-big text-4xl mb-2">-40%</div>
+          <div class="text-white syne font-semibold text-sm mb-1">Costo por Lead</div>
+          <p class="text-zinc-400 text-xs leading-relaxed">Versus páginas de destino genéricas sin optimización de conversión.</p>
+        </div>
+      </div>
+
+      <!-- Tags row -->
+      <div class="flex flex-wrap gap-2 pt-2">
+        <span class="tag px-3 py-1.5">ROI Medible</span>
+        <span class="tag px-3 py-1.5">UX de Conversión</span>
+        <span class="tag px-3 py-1.5">Automatización</span>
+        <span class="tag px-3 py-1.5">Escalabilidad</span>
+        <span class="tag px-3 py-1.5">B2B Funnels</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services grid -->
+  <div class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-zinc-900 fade-in" style="transition-delay: 0.25s;">
+    <div class="process-step p-10 pr-12 border-b md:border-b-0 md:border-r border-zinc-900">
+      <div class="text-cyan syne font-bold text-xs tracking-widest uppercase mb-6">Sistemas Web</div>
+      <h3 class="syne font-bold text-white text-xl mb-4 leading-tight">Arquitectura de Plataformas Digitales</h3>
+      <p class="text-zinc-400 text-sm leading-relaxed">Diseño de sistemas que procesan demanda real, integran CRMs, automatizan comunicaciones y reducen la fricción de conversión en cada punto del embudo.</p>
+    </div>
+    <div class="process-step p-10 pr-12 border-b md:border-b-0 md:border-r border-zinc-900">
+      <div class="text-cyan syne font-bold text-xs tracking-widest uppercase mb-6">Performance</div>
+      <h3 class="syne font-bold text-white text-xl mb-4 leading-tight">Sistemas de Adquisición Pagada</h3>
+      <p class="text-zinc-400 text-sm leading-relaxed">Estrategia, implementación y optimización de campañas Meta con landing pages propietarios, tracking avanzado y automatización post-lead para maximizar el ciclo de ventas.</p>
+    </div>
+    <div class="process-step p-10">
+      <div class="text-cyan syne font-bold text-xs tracking-widest uppercase mb-6">E-Commerce B2B</div>
+      <h3 class="syne font-bold text-white text-xl mb-4 leading-tight">Catálogos Dinámicos y Flujos de Pedido</h3>
+      <p class="text-zinc-400 text-sm leading-relaxed">Transformación del inventario en activos digitales de generación de demanda: catálogos filtrables, cotizaciones en línea y flujos de pedido sin intervención manual.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PORTAFOLIO
+═══════════════════════════════════════════ -->
+<section id="portafolio" class="py-40 px-6 lg:px-12 max-w-screen-2xl mx-auto">
+
+  <div class="fade-in flex items-center gap-4 mb-6">
+    <span class="section-label">02 / Portafolio</span>
+    <div class="h-px bg-zinc-800 flex-1 max-w-xs"></div>
+  </div>
+
+  <div class="mb-24 fade-in" style="transition-delay:0.1s;">
+    <h2 class="syne font-extrabold text-white mb-4" style="font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -0.03em;">
+      Casos de Infraestructura
+    </h2>
+    <p class="text-zinc-400 text-base max-w-xl">Proyectos documentados. Resultados medibles. Sistemas que siguen operando.</p>
+  </div>
+
+
+  <!-- ─── CASE 01: AGROLOGÍSTICA ─── -->
+  <div class="portfolio-item py-20 fade-in">
+    <div class="grid lg:grid-cols-12 gap-12 items-start">
+
+      <!-- Left: number + meta -->
+      <div class="lg:col-span-1 hidden lg:flex flex-col items-center gap-4 pt-2">
+        <span class="case-number port-num">01</span>
+      </div>
+
+      <!-- Center: content -->
+      <div class="lg:col-span-6">
+        <div class="flex flex-wrap gap-2 mb-8">
+          <span class="tag px-3 py-1.5">Logística B2B</span>
+          <span class="tag px-3 py-1.5">Tracking en Tiempo Real</span>
+          <span class="tag px-3 py-1.5">Operaciones</span>
+        </div>
+        <h3 class="syne font-extrabold text-white mb-2 leading-tight" style="font-size: clamp(1.8rem, 3vw, 2.8rem); letter-spacing: -0.02em;">
+          AgroLogística Pampeana
+        </h3>
+        <p class="text-cyan syne font-semibold text-sm tracking-widest uppercase mb-8">Sistema Operativo de Logística Agropecuaria</p>
+
+        <p class="text-zinc-400 text-base leading-relaxed mb-6">
+          AgroLogística Pampeana operaba con un sistema fragmentado: órdenes de trabajo en papel, comunicaciones por WhatsApp no estructurado y sin visibilidad en tiempo real del estado de sus despachos. Los coordinadores perdían entre 3 y 4 horas diarias reconciliando información dispersa.
+        </p>
+        <p class="text-zinc-400 text-base leading-relaxed mb-6">
+          Desarrollamos una plataforma web centralizada con panel de control operativo, módulo de tracking GPS integrado con los transportistas, y sistema de alertas automáticas por umbral de tiempo. La comunicación pasó de fragmentada a completamente trazable dentro del mismo sistema.
+        </p>
+        <p class="text-zinc-400 text-base leading-relaxed mb-10">
+          El resultado fue una eliminación casi total de las consultas de estado por fuera del sistema y una reducción del 60% en el tiempo de coordinación por envío. Los clientes B2B de AgroLogística acceden hoy a un portal propio con visibilidad de sus cargas en tiempo real, lo que redujo significativamente la fricción post-venta.
+        </p>
+
+        <!-- Result metrics -->
+        <div class="grid grid-cols-3 gap-0 border border-zinc-900">
+          <div class="p-5 border-r border-zinc-900 text-center">
+            <div class="stat-big text-2xl mb-1">-60%</div>
+            <div class="text-zinc-400 text-xs tracking-wide">Tiempo de coordinación</div>
+          </div>
+          <div class="p-5 border-r border-zinc-900 text-center">
+            <div class="stat-big text-2xl mb-1">100%</div>
+            <div class="text-zinc-400 text-xs tracking-wide">Trazabilidad de carga</div>
+          </div>
+          <div class="p-5 text-center">
+            <div class="stat-big text-2xl mb-1">+2h</div>
+            <div class="text-zinc-400 text-xs tracking-wide">Productividad diaria</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: image -->
+      <div class="lg:col-span-5">
+        <div class="img-wrap overflow-hidden border border-zinc-900 aspect-video bg-zinc-950 relative">
+          <!-- Placeholder visual representation -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-zinc-800 text-center p-12">
+              <!-- Schematic map/logistics UI mockup -->
+              <svg viewBox="0 0 480 270" class="w-full h-full" style="filter: grayscale(1) brightness(0.4); transition: filter 0.5s;">
+                <rect width="480" height="270" fill="#0a0a0a"/>
+                <!-- Grid background -->
+                <defs>
+                  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#18181b" stroke-width="0.5"/>
+                  </pattern>
+                </defs>
+                <rect width="480" height="270" fill="url(#grid)"/>
+                <!-- Map nodes -->
+                <circle cx="80" cy="80" r="8" fill="#14b8a6" opacity="0.8"/>
+                <circle cx="200" cy="130" r="6" fill="#14b8a6" opacity="0.6"/>
+                <circle cx="320" cy="90" r="8" fill="#14b8a6" opacity="0.8"/>
+                <circle cx="400" cy="180" r="6" fill="#14b8a6" opacity="0.6"/>
+                <circle cx="150" cy="200" r="5" fill="#14b8a6" opacity="0.4"/>
+                <!-- Routes -->
+                <line x1="80" y1="80" x2="200" y2="130" stroke="#14b8a6" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.5"/>
+                <line x1="200" y1="130" x2="320" y2="90" stroke="#14b8a6" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.5"/>
+                <line x1="320" y1="90" x2="400" y2="180" stroke="#14b8a6" stroke-width="1.5" opacity="0.7"/>
+                <line x1="80" y1="80" x2="150" y2="200" stroke="#27272a" stroke-width="1" stroke-dasharray="4,4" opacity="0.5"/>
+                <!-- Status bar -->
+                <rect x="24" y="220" width="432" height="32" rx="2" fill="#111111" opacity="0.9"/>
+                <rect x="32" y="228" width="80" height="16" rx="2" fill="#14b8a6" opacity="0.3"/>
+                <rect x="120" y="228" width="60" height="16" rx="2" fill="#27272a"/>
+                <rect x="188" y="228" width="100" height="16" rx="2" fill="#27272a"/>
+                <rect x="296" y="228" width="80" height="16" rx="2" fill="#27272a"/>
+                <!-- Labels -->
+                <text x="80" y="70" fill="#a1a1aa" font-size="9" text-anchor="middle" font-family="monospace">ORIGEN</text>
+                <text x="320" y="80" fill="#a1a1aa" font-size="9" text-anchor="middle" font-family="monospace">DESTINO</text>
+                <text x="400" y="170" fill="#14b8a6" font-size="8" text-anchor="middle" font-family="monospace">EN RUTA</text>
+                <!-- Panel -->
+                <rect x="330" y="20" width="130" height="80" rx="2" fill="#0d0d0d" stroke="#18181b" stroke-width="1"/>
+                <text x="340" y="40" fill="#14b8a6" font-size="8" font-family="monospace">DESPACHOS ACTIVOS</text>
+                <text x="340" y="58" fill="#ffffff" font-size="22" font-family="monospace" font-weight="bold">24</text>
+                <text x="340" y="78" fill="#3f3f46" font-size="7" font-family="monospace">+6 DESDE AYER</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 flex justify-between items-center">
+          <span class="text-zinc-600 text-xs font-mono tracking-widest">PLATAFORMA WEB — 2024</span>
+          <span class="text-cyan text-xs tracking-widest uppercase">Infraestructura B2B</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ─── CASE 02: APEX MOTOS ─── -->
+  <div class="portfolio-item py-20 fade-in">
+    <div class="grid lg:grid-cols-12 gap-12 items-start">
+
+      <div class="lg:col-span-1 hidden lg:flex flex-col items-center pt-2">
+        <span class="case-number port-num">02</span>
+      </div>
+
+      <!-- Right image FIRST on mobile, second on desktop -->
+      <div class="lg:col-span-5 lg:order-last">
+        <div class="img-wrap overflow-hidden border border-zinc-900 aspect-video bg-zinc-950 relative">
+          <div class="absolute inset-0">
+            <svg viewBox="0 0 480 270" class="w-full h-full" style="filter: grayscale(1) brightness(0.4); transition: filter 0.5s;">
+              <rect width="480" height="270" fill="#0a0a0a"/>
+              <defs>
+                <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+                  <circle cx="12" cy="12" r="1" fill="#18181b"/>
+                </pattern>
+              </defs>
+              <rect width="480" height="270" fill="url(#dots)"/>
+              <!-- Product cards -->
+              <rect x="20" y="20" width="140" height="180" rx="2" fill="#0d0d0d" stroke="#18181b" stroke-width="1"/>
+              <rect x="20" y="20" width="140" height="100" fill="#1a1a1a"/>
+              <!-- Moto silhouette simplified -->
+              <ellipse cx="90" cy="70" rx="50" ry="25" fill="none" stroke="#3f3f46" stroke-width="1.5"/>
+              <circle cx="60" cy="85" r="14" fill="none" stroke="#3f3f46" stroke-width="2"/>
+              <circle cx="120" cy="85" r="14" fill="none" stroke="#3f3f46" stroke-width="2"/>
+              <path d="M 60 71 L 90 55 L 120 71" fill="none" stroke="#3f3f46" stroke-width="2"/>
+              <text x="30" y="145" fill="#fff" font-size="11" font-family="monospace" font-weight="bold">YAMAHA MT-07</text>
+              <text x="30" y="162" fill="#14b8a6" font-size="10" font-family="monospace">$12.400.000</text>
+              <rect x="30" y="175" width="60" height="14" rx="1" fill="#14b8a6" opacity="0.8"/>
+              <text x="60" y="186" fill="#000" font-size="7" font-family="monospace" text-anchor="middle">CONSULTAR</text>
+
+              <rect x="170" y="20" width="140" height="180" rx="2" fill="#0d0d0d" stroke="#18181b" stroke-width="1"/>
+              <rect x="170" y="20" width="140" height="100" fill="#111"/>
+              <circle cx="210" cy="85" r="14" fill="none" stroke="#27272a" stroke-width="2"/>
+              <circle cx="270" cy="85" r="14" fill="none" stroke="#27272a" stroke-width="2"/>
+              <path d="M 210 71 L 240 52 L 270 71" fill="none" stroke="#27272a" stroke-width="2"/>
+              <text x="180" y="145" fill="#fff" font-size="11" font-family="monospace" font-weight="bold">HONDA CB500</text>
+              <text x="180" y="162" fill="#14b8a6" font-size="10" font-family="monospace">$8.900.000</text>
+              <rect x="180" y="175" width="60" height="14" rx="1" fill="#27272a"/>
+              <text x="210" y="186" fill="#a1a1aa" font-size="7" font-family="monospace" text-anchor="middle">CONSULTAR</text>
+
+              <!-- Filter sidebar -->
+              <rect x="325" y="20" width="135" height="230" rx="2" fill="#0d0d0d" stroke="#18181b" stroke-width="1"/>
+              <text x="335" y="42" fill="#14b8a6" font-size="8" font-family="monospace" letter-spacing="2">FILTROS</text>
+              <text x="335" y="62" fill="#a1a1aa" font-size="8" font-family="monospace">MARCA</text>
+              <rect x="335" y="68" width="110" height="12" rx="1" fill="#1a1a1a"/>
+              <text x="335" y="100" fill="#a1a1aa" font-size="8" font-family="monospace">CILINDRADA</text>
+              <rect x="335" y="106" width="110" height="12" rx="1" fill="#1a1a1a"/>
+              <text x="335" y="138" fill="#a1a1aa" font-size="8" font-family="monospace">PRECIO MÁX</text>
+              <rect x="335" y="144" width="110" height="4" rx="2" fill="#27272a"/>
+              <rect x="335" y="144" width="70" height="4" rx="2" fill="#14b8a6"/>
+              <circle cx="405" cy="146" r="5" fill="#14b8a6"/>
+              <text x="335" y="178" fill="#a1a1aa" font-size="8" font-family="monospace">USO</text>
+              <rect x="335" y="184" width="50" height="14" rx="1" fill="#1a1a1a"/>
+              <rect x="393" y="184" width="50" height="14" rx="1" fill="#14b8a6" opacity="0.4"/>
+            </svg>
+          </div>
+        </div>
+        <div class="mt-4 flex justify-between items-center">
+          <span class="text-zinc-600 text-xs font-mono tracking-widest">E-CATALOG — 2024</span>
+          <span class="text-cyan text-xs tracking-widest uppercase">Lead Generation</span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6">
+        <div class="flex flex-wrap gap-2 mb-8">
+          <span class="tag px-3 py-1.5">E-Commerce</span>
+          <span class="tag px-3 py-1.5">Lead Generation</span>
+          <span class="tag px-3 py-1.5">Catálogo Dinámico</span>
+        </div>
+        <h3 class="syne font-extrabold text-white mb-2 leading-tight" style="font-size: clamp(1.8rem, 3vw, 2.8rem); letter-spacing: -0.02em;">
+          Apex Motos
+        </h3>
+        <p class="text-cyan syne font-semibold text-sm tracking-widest uppercase mb-8">E-Catálogo Dinámico de Alta Gama</p>
+
+        <p class="text-zinc-400 text-base leading-relaxed mb-6">
+          Apex Motos disponía de un inventario de alto valor pero una presencia digital que no reflejaba la calidad de su producto ni generaba leads calificados. Las consultas llegaban de forma desordenada por redes sociales, sin datos de intención ni filtrado por capacidad de compra.
+        </p>
+        <p class="text-zinc-400 text-base leading-relaxed mb-6">
+          Construimos un catálogo digital dinámico con filtros por marca, cilindrada, uso y rango de precio. Cada ficha de producto incluye especificaciones técnicas completas, galería optimizada y un flujo de consulta que captura nombre, contacto e intención antes de habilitar el canal directo con el asesor.
+        </p>
+        <p class="text-zinc-400 text-base leading-relaxed mb-10">
+          El sistema se integró con un CRM liviano que permite al equipo de ventas ver en tiempo real el historial de navegación del lead antes de la primera llamada. La tasa de cierre mejoró significativamente al trabajar con prospectos pre-calificados por el sistema en lugar de contactos en frío.
+        </p>
+
+        <div class="grid grid-cols-3 gap-0 border border-zinc-900">
+          <div class="p-5 border-r border-zinc-900 text-center">
+            <div class="stat-big text-2xl mb-1">+180%</div>
+            <div class="text-zinc-400 text-xs tracking-wide">Leads calificados</div>
+          </div>
+          <div class="p-5 border-r border-zinc-900 text-center">
+            <div class="stat-big text-2xl mb-1">CRM</div>
+            <div class="text-zinc-400 text-xs tracking-wide">Integración directa</div>
+          </div>
+          <div class="p-5 text-center">
+            <div class="stat-big text-2xl mb-1">+55%</div>
+            <div class="text-zinc-400 text-xs tracking-wide">Tasa de cierre</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ─── CASE 03: BURGER & GRILL ─── -->
+  <div class="portfolio-item py-20 fade-in">
+    <div class="grid lg:grid-cols-12 gap-12 items-start">
+
+      <div class="lg:col-span-1 hidden lg:flex flex-col items-center pt-2">
+        <span class="case-number port-num">03</span>
+      </div>
+
+      <div class="lg:col-span-6">
+        <div class="flex flex-wrap gap-2 mb-8">
+          <span class="tag px-3 py-1.5">Gastronomía</span>
+          <span class="tag px-3 py-1.5">Meta Ads</span>
+          <span class="tag px-3 py-1.5">ROAS</span>
+          <span class="tag px-3 py-1.5">Automatización</span>
+        </div>
+        <h3 class="syne font-extrabold text-white mb-2 leading-tight" style="font-size: clamp(1.8rem, 3vw, 2.8rem); letter-spacing: -0.02em;">
+          Burger & Grill
+        </h3>
+        <p class="text-cyan syne font-semibold text-sm tracking-widest uppercase mb-8">Funnel de Conversión Gastronómica + Meta Ads</p>
+
+        <p class="text-zinc-400 text-base leading-relaxed mb-6">
+          Burger & Grill invertía en pauta digital sin estructura de conversión propia: los anuncios conducían a una bio de Instagram. Sin pixel, sin tracking de eventos, sin datos post-clic. El gasto no tenía medición y el canal de pedidos dependía completamente de WhatsApp manual.
+        </p>
+        <p class="text-zinc-400 text-base leading-relaxed mb-6">
+          Diseñamos e implementamos un funnel de conversión gastronómica completo: landing page de alta conversión con menú visual, oferta de captación y formulario de pedido anticipado. Se implementó el Pixel de Meta con eventos personalizados para cada acción relevante (visualización de menú, inicio de pedido, confirmación).
+        </p>
+        <p class="text-zinc-400 text-base leading-relaxed mb-10">
+          Las campañas de Meta Ads se estructuraron sobre audiencias lookalike derivadas del pixel propio. El flujo de pedidos se automatizó con confirmación por mensaje instantáneo y notificación interna, eliminando el procesamiento manual durante picos de demanda del fin de semana.
+        </p>
+
+        <div class="grid grid-cols-3 gap-0 border border-zinc-900">
+          <div class="p-5 border-r border-zinc-900 text-center">
+            <div class="stat-big text-2xl mb-1">3.8x</div>
+            <div class="text-zinc-400 text-xs tracking-wide">ROAS promedio</div>
+          </div>
+          <div class="p-5 border-r border-zinc-900 text-center">
+            <div class="stat-big text-2xl mb-1">-70%</div>
+            <div class="text-zinc-400 text-xs tracking-wide">Pedidos manuales</div>
+          </div>
+          <div class="p-5 text-center">
+            <div class="stat-big text-2xl mb-1">+240%</div>
+            <div class="text-zinc-400 text-xs tracking-wide">Volumen de pedidos</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="img-wrap overflow-hidden border border-zinc-900 aspect-video bg-zinc-950 relative">
+          <div class="absolute inset-0">
+            <svg viewBox="0 0 480 270" class="w-full h-full" style="filter: grayscale(1) brightness(0.4); transition: filter 0.5s;">
+              <rect width="480" height="270" fill="#0a0a0a"/>
+              <!-- Funnel shape -->
+              <defs>
+                <linearGradient id="funnelGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.5"/>
+                  <stop offset="100%" stop-color="#14b8a6" stop-opacity="0.1"/>
+                </linearGradient>
+              </defs>
+              <!-- Funnel stages -->
+              <polygon points="60,30 420,30 380,90 100,90" fill="#14b8a6" opacity="0.15" stroke="#14b8a6" stroke-width="1" opacity="0.4"/>
+              <polygon points="100,95 380,95 340,155 140,155" fill="#14b8a6" opacity="0.10" stroke="#14b8a6" stroke-width="1" opacity="0.3"/>
+              <polygon points="140,160 340,160 300,220 180,220" fill="#14b8a6" opacity="0.08" stroke="#14b8a6" stroke-width="1" opacity="0.25"/>
+
+              <!-- Stage labels -->
+              <text x="240" y="65" fill="#a1a1aa" font-size="9" font-family="monospace" text-anchor="middle">ANUNCIO META — 12.400 impresiones</text>
+              <text x="240" y="130" fill="#a1a1aa" font-size="9" font-family="monospace" text-anchor="middle">LANDING PAGE — 3.100 visitas</text>
+              <text x="240" y="195" fill="#14b8a6" font-size="9" font-family="monospace" text-anchor="middle">PEDIDOS — 480 confirmados</text>
+
+              <!-- Right panel: ROAS card -->
+              <rect x="330" y="20" width="130" height="65" rx="2" fill="#0d0d0d" stroke="#18181b"/>
+              <text x="340" y="38" fill="#3f3f46" font-size="7" font-family="monospace">ROAS SEMANAL</text>
+              <text x="340" y="62" fill="#14b8a6" font-size="26" font-family="monospace" font-weight="bold">3.8x</text>
+
+              <rect x="330" y="95" width="130" height="65" rx="2" fill="#0d0d0d" stroke="#18181b"/>
+              <text x="340" y="113" fill="#3f3f46" font-size="7" font-family="monospace">PEDIDOS AUTOMÁT.</text>
+              <text x="340" y="137" fill="#ffffff" font-size="26" font-family="monospace" font-weight="bold">480</text>
+
+              <!-- Arrow down -->
+              <line x1="240" y1="225" x2="240" y2="248" stroke="#14b8a6" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <polygon points="234,248 240,258 246,248" fill="#14b8a6"/>
+              <text x="240" y="265" fill="#14b8a6" font-size="7" font-family="monospace" text-anchor="middle">CONFIRMACIÓN AUTOMÁTICA</text>
+            </svg>
+          </div>
+        </div>
+        <div class="mt-4 flex justify-between items-center">
+          <span class="text-zinc-600 text-xs font-mono tracking-widest">FUNNEL + META ADS — 2025</span>
+          <span class="text-cyan text-xs tracking-widest uppercase">Conversión Gastronómica</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PROCESO
+═══════════════════════════════════════════ -->
+<section id="proceso" class="py-40 px-6 lg:px-12 max-w-screen-2xl mx-auto border-t border-zinc-900">
+
+  <div class="fade-in flex items-center gap-4 mb-20">
+    <span class="section-label">03 / Proceso</span>
+    <div class="h-px bg-zinc-800 flex-1 max-w-xs"></div>
+  </div>
+
+  <div class="grid lg:grid-cols-2 gap-20 items-start">
+    <div class="fade-in">
+      <h2 class="syne font-extrabold text-white leading-tight" style="font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -0.03em;">
+        Método de Intervención Operativa
+      </h2>
+    </div>
+    <div class="fade-in text-zinc-400 text-base leading-relaxed" style="transition-delay: 0.1s;">
+      Cada proyecto atraviesa cuatro fases no negociables. No iniciamos producción sin diagnóstico validado. No lanzamos sin métricas base establecidas.
+    </div>
+  </div>
+
+  <div class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 fade-in" style="transition-delay: 0.2s;">
+    <div class="process-step p-10 border-b md:border-b-0 border-r border-zinc-900">
+      <div class="stat-big text-5xl mb-6">01</div>
+      <h4 class="syne font-bold text-white text-lg mb-4">Auditoría Digital</h4>
+      <p class="text-zinc-400 text-sm leading-relaxed">Diagnóstico completo del estado actual: canales, métricas, procesos operativos, puntos de fuga y oportunidades de optimización. Sin esto, no hay propuesta.</p>
+    </div>
+    <div class="process-step p-10 border-b md:border-b-0 border-r border-zinc-900">
+      <div class="stat-big text-5xl mb-6">02</div>
+      <h4 class="syne font-bold text-white text-lg mb-4">Arquitectura de Solución</h4>
+      <p class="text-zinc-400 text-sm leading-relaxed">Diseño técnico del sistema: stack, integraciones, flujos de datos y KPIs de éxito definidos antes de escribir una sola línea de código.</p>
+    </div>
+    <div class="process-step p-10 border-b lg:border-b-0 border-r border-zinc-900">
+      <div class="stat-big text-5xl mb-6">03</div>
+      <h4 class="syne font-bold text-white text-lg mb-4">Construcción e Integración</h4>
+      <p class="text-zinc-400 text-sm leading-relaxed">Desarrollo iterativo con entregas parciales validadas. Testing funcional, optimización de performance y documentación técnica completa del sistema.</p>
+    </div>
+    <div class="process-step p-10">
+      <div class="stat-big text-5xl mb-6">04</div>
+      <h4 class="syne font-bold text-white text-lg mb-4">Lanzamiento y Escalado</h4>
+      <p class="text-zinc-400 text-sm leading-relaxed">Activación con monitoreo en tiempo real, ajuste de campañas en las primeras 72 horas y revisión de métricas en semana 2, 4 y 8 post-lanzamiento.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FINAL CTA
+═══════════════════════════════════════════ -->
+<section id="contacto" class="py-40 px-6 lg:px-12 bg-white">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="fade-in flex items-center gap-4 mb-16">
+      <span class="text-zinc-400 text-xs tracking-widest uppercase font-mono">04 / Contacto</span>
+      <div class="h-px bg-zinc-300 flex-1 max-w-xs"></div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-20 items-end">
+      <div class="fade-in">
+        <h2 class="syne font-extrabold text-black leading-tight mb-8" style="font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: -0.04em;">
+          ¿Listo para escalar su infraestructura?
+        </h2>
+        <p class="text-zinc-600 text-base leading-relaxed max-w-md">
+          La auditoría es sin costo y sin compromiso. En 45 minutos identificamos los tres puntos de mayor impacto en su operación digital y le presentamos un plan de acción concreto.
+        </p>
+      </div>
+      <div class="fade-in flex flex-col gap-6" style="transition-delay: 0.15s;">
+        <a href="mailto:contacto@ggdesarrollo.com" class="btn-cta-large inline-block text-center px-12 py-6 text-sm tracking-widest link-cursor">
+          Agendar Auditoría Gratuita
+        </a>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="border border-zinc-200 p-6">
+            <div class="syne font-bold text-black text-sm mb-1 tracking-wide">Proyectos</div>
+            <div class="text-zinc-500 text-xs leading-relaxed">Disponibilidad limitada a 2 nuevos clientes por mes.</div>
+          </div>
+          <div class="border border-zinc-200 p-6">
+            <div class="syne font-bold text-black text-sm mb-1 tracking-wide">Respuesta</div>
+            <div class="text-zinc-500 text-xs leading-relaxed">Confirmación de reunión en menos de 24 horas hábiles.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="bg-black border-t border-zinc-900 pt-20 pb-10 px-6 lg:px-12">
+  <div class="max-w-screen-2xl mx-auto">
+
+    <!-- Main footer content -->
+    <div class="grid lg:grid-cols-3 gap-16 pb-20 border-b border-zinc-900">
+      <div class="lg:col-span-2">
+        <div class="syne font-extrabold text-white text-2xl tracking-[0.15em] mb-6">GG DESARROLLO</div>
+        <p class="text-zinc-600 text-sm leading-relaxed max-w-md mb-8">
+          Ingeniería digital de alto rendimiento para empresas que requieren resultados operativos medibles.
+        </p>
+        <p class="syne font-bold text-zinc-700 text-xs tracking-[0.35em] uppercase">
+          DESARROLLAMOS SOLUCIONES. GENERAMOS RESULTADOS.
+        </p>
+      </div>
+      <div>
+        <div class="text-cyan text-xs tracking-widest uppercase mb-6 font-mono">Contacto</div>
+        <div class="space-y-3">
+          <div>
+            <div class="text-zinc-600 text-xs tracking-widest uppercase mb-1">Ubicación</div>
+            <div class="text-zinc-400 text-sm">Navarro, Buenos Aires</div>
+          </div>
+          <div>
+            <div class="text-zinc-600 text-xs tracking-widest uppercase mb-1">Email</div>
+            <a href="mailto:contacto@ggdesarrollo.com" class="text-zinc-400 text-sm underline-link link-cursor">contacto@ggdesarrollo.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="pt-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <span class="text-zinc-700 text-xs font-mono tracking-widest">© 2026 GG DESARROLLO. TODOS LOS DERECHOS RESERVADOS.</span>
+      <span class="text-zinc-700 text-xs font-mono tracking-widest">NAVARRO, BUENOS AIRES — ARG</span>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════ -->
+<script>
+  // Intersection Observer for fade-in animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Grayscale hover on SVG inside img-wrap
+  document.querySelectorAll('.img-wrap').forEach(wrap => {
+    const svg = wrap.querySelector('svg');
+    if (!svg) return;
+    wrap.addEventListener('mouseenter', () => {
+      svg.style.filter = 'grayscale(0%) brightness(0.85)';
+    });
+    wrap.addEventListener('mouseleave', () => {
+      svg.style.filter = 'grayscale(1) brightness(0.4)';
+    });
+  });
+
+  // Case number hover color
+  document.querySelectorAll('.portfolio-item').forEach(item => {
+    const num = item.querySelector('.case-number');
+    if (!num) return;
+    item.addEventListener('mouseenter', () => { num.style.color = '#14b8a6'; });
+    item.addEventListener('mouseleave', () => { num.style.color = '#18181b'; });
+  });
+
+  // Smooth header shrink on scroll
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      header.style.borderBottomColor = '#27272a';
+    } else {
+      header.style.borderBottomColor = '#18181b';
+    }
+  });
+</script>
+
+</body>
+</html>
