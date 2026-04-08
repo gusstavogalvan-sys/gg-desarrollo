@@ -1,230 +1,177 @@
- <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GG Desarrollo Web | Ingeniería Digital de Alto Rendimiento Regional</title>
-    
-    <meta name="description" content="GG Desarrollo Web - Ingeniería Digital de élite para Navarro, Lobos, Mercedes. Transformamos comercios en activos dominantes con performance, UI/UX, e-commerce y SEO técnico. Auditamos tu potencial técnico gratis.">
-    <meta name="robots" content="index, follow">
-    
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gg-desarrollo.vercel.app/">
-    <meta property="og:title" content="GG Desarrollo Web | Tu Negocio Dominante en la Región">
-    <meta property="og:description" content="No hacemos páginas, desarrollamos activos digitales anti-caídas. Ingeniería de alto rendimiento para multiplicar tus ventas en Navarro, Lobos, Mercedes.">
-    <meta property="og:image" content="https://gg-desarrollo.vercel.app/logo.png">
+   
+                     
+              
+               import Head from 'next/head';
+import Image from 'next/image';
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100;400;700&family=Inter:wght@300;500;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Geist Mono', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            slate: '#020617',
-                            cyan: '#22D3EE',
-                            indigo: '#6366F1'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-        <style>
-        body { background-color: #020617; }
-        .radial-glow {
-            background: radial-gradient(circle, rgba(34,211,238,0.08) 0%, rgba(2,6,23,0) 70%);
-        }
-        /* LA MAGIA PARA EL MENÚ MOBILE */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-   </style>
-</head>
-<body class="font-sans text-slate-300 antialiased">
+// REBRANDING TOTAL: GG Desarrollo - Ingeniería Digital de Élite
+// Coherencia absoluta con tu perfil de WhatsApp Business corporativo.
 
-        <nav class="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-start items-center overflow-hidden">
-            <div class="flex gap-5 md:gap-12 text-[12px] md:text-xs uppercase tracking-[0.3em] font-bold overflow-x-auto whitespace-nowrap w-full no-scrollbar pb-1">
-                <a href="#ingenieria" class="text-slate-500 hover:text-cyan-400 transition-colors shrink-0">Ingeniería</a>
-                <a href="#realidad" class="text-slate-500 hover:text-cyan-400 transition-colors shrink-0">Realidad Regional</a>
-                <a href="#servicios" class="text-slate-500 hover:text-cyan-400 transition-colors shrink-0">Servicios</a>
-                <a href="#portafolio" class="text-slate-500 hover:text-cyan-400 transition-colors shrink-0">Portafolio</a>
-                <a href="https://wa.me/5492227530526" target="_blank" class="text-cyan-400 hover:text-white transition-colors border-b border-cyan-400/30 pb-1 shrink-0">Consultar</a>
+// --- CONFIGURACIÓN DE COLOR ---
+// bg-slate-950 (Fondo ultra oscuro de elite)
+// text-white (Contraste premium)
+// text-cyan-400 / bg-cyan-400 (El toque de precisión #14b8a6)
+// text-zinc-400 / text-zinc-500 (Textos secundarios elegantes)
+
+export default function Home() {
+  return (
+    <>
+      <Head>
+        <title>GG Desarrollo | Ingeniería Digital & Optimización de Ventas B2B</title>
+        <meta name="description" content="Infraestructura web de alto rendimiento y estrategias de Meta Ads para escalar facturación. Consultora boutique para comercios y profesionales de la región." />
+        {/* FAVICON PURGADO: Aquí va solo el monograma GG entrelazado de image_36.png, sin texto */}
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <div className="min-h-screen bg-slate-950 text-white font-sans selection:bg-cyan-900 selection:text-cyan-200">
+        
+        {/* --- NAV BAR: LA PRIMERA IMPRESIÓN DE AUTORIDAD --- */}
+        <nav className="border-b border-zinc-800 bg-slate-950/90 backdrop-blur-sm sticky top-0 z-50">
+          <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              {/* LOGO GG MONOLÍTICO: Usar el símbolo de image_36.png */}
+              <div className="w-10 h-10 relative">
+                <Image 
+                  src="/logo-monolito-gg.png" 
+                  alt="GG Desarrollo Monolito"
+                  layout="fill"
+                  objectFit="contain"
+                  priority
+                />
+              </div>
+              <span className="text-2xl font-bold tracking-tight">GG <span className="text-cyan-400">Desarrollo</span></span>
             </div>
-        </div>
-    </nav>
-10p  <header id="ingenieria" class="relative min-h-screen flex flex-col justify-center items-center px-6 pt-24 overflow-hidden scroll-mt-24">
-        <div class="absolute inset-0 radial-glow z-0"></div>
-        <div class="relative z-10 text-center space-y-8 max-w-5xl">
-            <div class="inline-block border border-cyan-800 bg-cyan-950/20 px-4 py-1 rounded-full">
-                <span class="font-mono text-[10px] uppercase text-cyan-400 tracking-widest italic">Digitalizando el Potencial Regional</span>
+            <div className="flex items-center gap-2">
+              <a 
+                href="https://wa.me/5492227530526" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-cyan-400 text-slate-950 px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-950/30"
+              >
+                Agendar Diagnóstico
+              </a>
             </div>
-            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter bg-gradient-to-br from-white to-slate-500 bg-clip-text text-transparent leading-tight">
-                Ingeniería digital de alto rendimiento.
+          </div>
+        </nav>
+
+        <main className="max-w-7xl mx-auto px-6 py-16 md:py-24 space-y-24 md:space-y-32">
+
+          {/* --- HERO SECTION: DE FREELANCER A AGENCIA ELITE --- */}
+          <section className="text-center space-y-8">
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter leading-tight bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent">
+              Ingeniería Digital que <span className="text-cyan-400">Escala tu Facturación.</span>
             </h1>
-            <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed">
-                Transformamos comercios y servicios locales en marcas digitales dominantes. Fusionamos arquitectura de software de vanguardia con estrategias de conversión para proyectar tu negocio sin fronteras operativas.
+            <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl mx-auto leading-relaxed font-light">
+              Desarrollamos infraestructura web de alto rendimiento y optimizamos la pauta digital. Ayudamos a comercios y profesionales de la región a potenciar sus ventas y escalar su facturación mediante soluciones a medida.
             </p>
-            <div class="flex flex-wrap justify-center gap-4 pt-10">
-                <a href="#servicios" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-10 py-5 rounded-full font-bold transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(34,211,238,0.3)] text-lg">
-                    Explorar Capacidades
-                </a>
-                <a href="https://wa.me/5492227530526" target="_blank" class="border border-slate-700 hover:border-cyan-500 px-10 py-5 rounded-full font-bold transition-all text-lg text-white">
-                    Agendar Auditoría Gratuita
-                </a>
+            <div className="flex justify-center gap-4 pt-4">
+              <a 
+                href="https://wa.me/5492227530526" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-white text-slate-950 px-8 py-4 rounded-xl font-bold text-lg hover:bg-cyan-400 transition-colors transform hover:-translate-y-1"
+              >
+                Contactar Ahora
+              </a>
+              <a 
+                href="#casos" 
+                className="bg-slate-900 border border-zinc-700 text-white px-8 py-4 rounded-xl font-bold text-lg hover:border-cyan-400 hover:text-cyan-400 transition-all transform hover:-translate-y-1"
+              >
+                Ver Casos de Éxito
+              </a>
             </div>
-        </div>
-    </header>
+          </section>
 
-    <section id="realidad" class="py-24 bg-[#01030C] border-t border-b border-slate-800/50 scroll-mt-24">
-        <div class="max-w-4xl mx-auto px-6 text-center space-y-6">
-            <div class="text-amber-500 font-bold uppercase tracking-widest text-sm font-mono">[ ALERTA DE MERCADO ]</div>
-            <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                Tu competencia ya está cerrando ventas por internet mientras vos seguís respondiendo precios a mano.
-            </h2>
-            <p class="text-xl text-slate-400 font-light leading-relaxed max-w-3xl mx-auto">
-                El mercado regional cambió. O te digitalizás en serio con infraestructura de alto rendimiento, o te quedás con las sobras. Auditamos tu potencial técnico gratis para evaluar si tu actual presencia digital está trabajando para vos o en tu contra.
-            </p>
-        </div>
-    </section>
-
-    <section class="py-24 bg-slate-900/50 border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-5 gap-16 items-center">
-            <div class="md:col-span-2 space-y-6 text-left">
-                <h2 class="text-4xl font-extrabold tracking-tight text-white leading-tight">No hacemos páginas web.<br>Desarrollamos <span class="text-cyan-400 font-mono italic">Activos Digitales Monetizables.</span></h2>
-                <p class="text-slate-400 leading-relaxed text-lg">El mercado regional está saturado de soluciones rústicas, lentas y vulnerables. En <strong class="text-white">GG Desarrollo Web</strong> aplicamos la filosofía de la ingeniería de software real a cada proyecto. Buscamos optimización extrema y seguridad inquebrantable, garantizando que tu presencia digital sea el motor de tu crecimiento y no un gasto operativo.</p>
-            </div>
-            <div class="md:col-span-3 grid md:grid-cols-2 gap-8 text-left">
-                <div class="bg-slate-950 p-10 rounded-2xl border border-slate-800 space-y-4">
-                    <span class="font-mono text-cyan-400 text-3xl font-bold italic underline">A+</span>
-                    <h4 class="text-white font-bold text-xl">Retención de Cliente y Compra Directa</h4>
-                    <p class="text-slate-500 text-sm italic leading-relaxed">Carga instantánea. Optimizamos el "Total Blocking Time" (<100ms) para garantizar que ningún cliente se pierda por esperas innecesarias en mobile, maximizando la conversión.</p>
+          {/* --- CASO DE ESTUDIO PURGADO (Manteniendo los datos, cambiando el idioma) --- */}
+          <section id="casos" className="space-y-12">
+            <h2 className="text-4xl font-extrabold tracking-tight border-l-4 border-cyan-400 pl-4">Caso de Estudio: Automatización de Catálogo Digital B2B</h2>
+            <div className="grid md:grid-cols-2 gap-10 items-center bg-slate-900/50 p-10 rounded-3xl border border-zinc-800 shadow-xl shadow-cyan-950/10">
+              <div className="space-y-6">
+                <p className="text-sm font-semibold uppercase tracking-widest text-cyan-400">Restaurante "Los 7 Hermanos"</p>
+                <h3 className="text-3xl font-bold leading-snug">Optimización Operativa y Escalamiento de Pauta Digital (Meta Ads).</h3>
+                <p className="text-lg text-zinc-400">El caos operativo durante las horas pico de pedidos fue resuelto mediante la implementación de un catálogo dinámico y una infraestructura de "Ingeniería de Catálogo".</p>
+                
+                <ul className="space-y-3 text-zinc-300 border-t border-zinc-700 pt-6">
+                  <li className="flex items-center gap-3"><span className="text-cyan-400">✔</span> Reducción del 60% en el tiempo de procesamiento de pedidos por WhatsApp.</li>
+                  <li className="flex items-center gap-3"><span className="text-cyan-400">✔</span> Ticket promedio de venta incrementado gracias al diseño UX del catálogo.</li>
+                  <li className="flex items-center gap-3"><span className="text-cyan-400">✔</span> Optimización del ROAS (Retorno de Inversión Publicitaria) en Meta Ads.</li>
+                </ul>
+              </div>
+              
+              {/* Imagen del Caso: Mantenemos el sushi, pero con la nueva vibra corporativa */}
+              <div className="bg-slate-950 p-4 rounded-2xl border border-zinc-800 shadow-inner">
+                <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl shadow-cyan-950/20">
+                  <Image 
+                    src="/caso-sushi-premium.jpg" 
+                    alt="Infraestructura Catálogo Sushi Premium"
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 p-3 bg-cyan-950/50 backdrop-blur-sm border border-cyan-700 rounded-lg">
+                    <p className="text-xs text-cyan-200">Automatización de Flujos</p>
+                  </div>
                 </div>
-                <div class="bg-slate-950 p-10 rounded-2xl border border-slate-800 space-y-4">
-                    <span class="font-mono text-cyan-400 text-3xl font-bold">100%</span>
-                    <h4 class="text-white font-bold text-xl">Sistemas Anti-Caídas / Cero Bloqueos</h4>
-                    <p class="text-slate-500 text-sm italic leading-relaxed">Usamos Arquitectura Headless para separar el frontend del backend. Esto logra una seguridad impenetrable, velocidad absurda y escalabilidad operativa regional sin límites técnicos.</p>
-                </div>
+              </div>
             </div>
-        </div>
-    </section>
+          </section>
 
-    <section id="servicios" class="py-32 relative scroll-mt-24">
-        <div class="absolute inset-0 radial-glow z-0"></div>
-        <div class="relative z-10 max-w-7xl mx-auto px-6 space-y-16">
-            <header class="text-center max-w-3xl mx-auto space-y-4">
-                <h3 class="text-5xl font-extrabold tracking-tight text-white italic">Ingeniería Digital Aplicada a Ventas</h3>
-                <p class="text-slate-400 leading-relaxed text-lg">Desglosamos nuestras capacidades técnicas orientadas a resolver desafíos comerciales reales en la región.</p>
-            </header>
+          {/* --- NUESTRA INFRAESTRUCTURA DE SERVICIOS (El idioma de Élite) --- */}
+          <section className="space-y-12 text-center">
+            <h2 className="text-4xl font-extrabold tracking-tight inline-block border-l-4 border-cyan-400 pl-4 text-left">Nuestras Soluciones de Ingeniería Digital</h2>
+            <div className="grid md:grid-cols-3 gap-8 text-left">
+              {[
+                {
+                  icon: "🛠",
+                  title: "Infraestructura Web & B2B",
+                  desc: "Desarrollo de portales dinámicos, ecosistemas B2B y catálogos de alto rendimiento diseñados para la conversión y la escalabilidad operativa.",
+                },
+                {
+                  icon: "📊",
+                  title: "Meta Ads & Optimización",
+                  desc: "Gestión de pauta publicitaria en Meta Ads (Facebook/Instagram) con enfoque en ROAS y optimización de embudos de venta digitales.",
+                },
+                {
+                  icon: "📍",
+                  title: "Auditoría & Diagnóstico",
+                  desc: "Sesiones de auditoría de marca para comercios y profesionales de la región, diagnosticando fallas en la conversión y cuellos de botella.",
+                }
+              ].map((service, index) => (
+                <div key={index} className="bg-slate-900 p-8 rounded-2xl border border-zinc-800 space-y-4 hover:border-cyan-400 transition-all transform hover:-translate-y-2 shadow-lg shadow-cyan-950/5">
+                  <div className="text-4xl text-cyan-400">{service.icon}</div>
+                  <h3 className="text-2xl font-semibold tracking-tight text-white">{service.title}</h3>
+                  <p className="text-zinc-400 text-base leading-relaxed">{service.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+        </main>
+
+        {/* --- FOOTER: EL ACTA DE FUNDACIÓN CORPORATIVA --- */}
+        <footer className="border-t border-zinc-800 bg-slate-950 mt-24">
+          <div className="max-w-7xl mx-auto px-6 py-12 text-center space-y-8">
+            <div className="flex flex-col items-center gap-3">
+              {/* LOGO GG MONOLÍTICO: Símbolo de image_36.png */}
+              <div className="w-12 h-12 relative">
+                <Image 
+                  src="/logo-monolito-gg.png" 
+                  alt="GG Desarrollo Isotipo"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+              <p className="text-lg text-zinc-300 font-bold tracking-widest uppercase">
+                <span className="text-cyan-400">DESARROLLAMOS SOLUCIONES.</span> GENERAMOS RESULTADOS.
+              </p>
+              <p className="text-xs text-zinc-600">Servicios Empresariales B2B | Navarro, Buenos Aires Province, Argentina.</p>
+            </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-                <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 space-y-6 flex flex-col hover:border-cyan-800 transition group">
-                    <div class="border border-cyan-800 bg-cyan-950/20 w-12 h-12 rounded-xl flex items-center justify-center text-cyan-400 group-hover:scale-110 transition italic font-bold">⚡</div>
-                    <h4 class="text-white font-bold text-xl italic">Performance para Zonas Rurales</h4>
-                    <p class="text-slate-500 text-sm flex-grow italic">La velocidad es el factor #1 de conversión. En zonas con conectividad 4G/mobile inestable (Navarro, Mercedes), tu web DEBE volar. Optimizamos métricas críticas para una experiencia de usuario élite.</p>
-                    <ul class="text-[10px] font-mono text-slate-600 space-y-2 pt-4 border-t border-slate-800 uppercase tracking-tighter">
-                        <li>[x] Cero Cambios de Diseño Bruscos</li>
-                        <li>[x] Carga < 100ms de Bloqueo</li>
-                        <li>[x] Puntaje Lighthouse > 95</li>
-                    </ul>
-                </div>
-                <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 space-y-6 flex flex-col hover:border-cyan-800 transition group">
-                    <div class="border border-indigo-800 bg-indigo-950/20 w-12 h-12 rounded-xl flex items-center justify-center text-indigo-400 group-hover:scale-110 transition italic font-bold">🎨</div>
-                    <h4 class="text-white font-bold text-xl italic underline">UI/UX para la Conversión</h4>
-                    <p class="text-slate-500 text-sm flex-grow italic leading-relaxed">No usamos plantillas rústicas. Creamos interfaces UI únicas que proyectan una identidad exclusiva y una experiencia de usuario fluida orientada a la conversión quirúrgica.</p>
-                    <ul class="text-[10px] font-mono text-slate-600 space-y-2 pt-4 border-t border-slate-800 uppercase tracking-tighter">
-                        <li>[x] Identidad Visual Exclusiva</li>
-                        <li>[x] Enfoque Móvil Primero (Mobile First)</li>
-                        <li>[x] Micro-interacciones de Alta Gama</li>
-                    </ul>
-                </div>
-                <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 space-y-6 flex flex-col hover:border-cyan-800 transition group">
-                    <div class="border border-green-800 bg-green-950/20 w-12 h-12 rounded-xl flex items-center justify-center text-green-400 group-hover:scale-110 transition italic font-bold">🛒</div>
-                    <h4 class="text-white font-bold text-xl">Venta Automatizada Directa</h4>
-                    <p class="text-slate-500 text-sm flex-grow italic leading-relaxed">Digitalizamos tu stock rústico. Sistemas intuitivos donde el cliente elige productos y genera pedidos armados directo a tu WhatsApp Business, eliminando errores manuales.</p>
-                    <ul class="text-[10px] font-mono text-slate-600 space-y-2 pt-4 border-t border-slate-800 uppercase tracking-tighter">
-                        <li>[x] Catálogos Interactivos Dinámicos</li>
-                        <li>[x] Integración Directa con WhatsApp</li>
-                        <li>[x] Gestión Ágil y Cero Stock Fantasma</li>
-                    </ul>
-                </div>
-                <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 space-y-6 flex flex-col hover:border-cyan-800 transition group">
-                    <div class="border border-amber-800 bg-amber-950/20 w-12 h-12 rounded-xl flex items-center justify-center text-amber-400 group-hover:scale-110 transition italic font-bold">🔍</div>
-                    <h4 class="text-white font-bold text-xl italic">SEO Técnico Regional Dominante</h4>
-                    <p class="text-slate-500 text-sm flex-grow italic leading-relaxed">Hacemos herramientas que Google prioriza. Estructuramos tus datos (Schema) e indexamos avanzadamente para que aparezcas primero cuando tus clientes busquen en la región.</p>
-                    <ul class="text-[10px] font-mono text-slate-600 space-y-2 pt-4 border-t border-slate-800 uppercase tracking-tighter">
-                        <li>[x] Arquitectura de Información Optimizada</li>
-                        <li>[x] Datos Estructurados Schema.org</li>
-                        <li>[x] Indexación Técnica en Google Regional</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+            <p className="text-sm text-zinc-500">© {new Date().getFullYear()} GG Desarrollo. Todos los derechos reservados. <span className="text-cyan-700">|</span> <a href="https://vercel.com" className="hover:text-cyan-400">Nave Nodriza operando en Vercel.</a></p>
+          </div>
+        </footer>
 
-        <section id="portafolio" class="py-32 bg-slate-900 border-t border-slate-800 scroll-mt-24">
-        <div class="max-w-7xl mx-auto px-6 space-y-16 text-left">
-            <header class="text-center max-w-3xl mx-auto space-y-4">
-                <h3 class="text-5xl font-extrabold tracking-tight text-white italic">Ejecución Regional: Casos de Estudio</h3>
-                <p class="text-slate-400 leading-relaxed text-lg">Analizamos soluciones implementadas para negocios con alta demanda operativa en sectores clave.</p>
-            </header>
-
-            <div class="grid md:grid-cols-3 gap-8 text-sm">
-                <div class="bg-slate-950 border border-slate-800 rounded-3xl p-10 space-y-4 hover:border-cyan-800 transition group opacity-60 hover:opacity-100 flex flex-col">
-                    <span class="text-[10px] uppercase text-cyan-400 font-mono tracking-widest font-bold">[ CASO AUTOMOTRIZ: APEX MOTOS ]</span>
-                    <h4 class="text-white font-bold text-2xl italic">Showroom Digital de Alta Gama</h4>
-                    <p class="text-slate-500 italic leading-relaxed flex-grow">Transformación operativa del inventario físico rústico en un catálogo digital de alto valor con respuesta en tiempo real y CTA directo a ventas.</p>
-                    <img src="motos.jpg" alt="Mockup Apex Motos" class="rounded-xl border border-slate-800 mt-4 shadow-lg w-full object-cover">
-                </div>
-
-                <div class="bg-slate-950 border border-slate-800 rounded-3xl p-10 space-y-4 hover:border-cyan-800 transition group opacity-60 hover:opacity-100 flex flex-col">
-                    <span class="text-[10px] uppercase text-cyan-400 font-mono tracking-widest font-bold">[ CASO GASTRONOMÍA: BURGER & GRILL ]</span>
-                    <h4 class="text-white font-bold text-2xl italic">Ecosistema de Pedidos Móvil</h4>
-                    <p class="text-slate-500 italic leading-relaxed flex-grow">Optimización del flujo de reservas y ventas móviles. Reducción drástica del 80% del tiempo operativo de chat por WhatsApp.</p>
-                    <img src="no.jpg" alt="Mockup Burger Grill" class="rounded-xl border border-slate-800 mt-4 shadow-lg w-full object-cover">
-                </div>
-
-                <div class="bg-slate-950 border border-slate-800 rounded-3xl p-10 space-y-4 hover:border-cyan-800 transition group opacity-60 hover:opacity-100 flex flex-col">
-                    <span class="text-[10px] uppercase text-cyan-400 font-mono tracking-widest font-bold">[ CASO INDUSTRIAL: AGROLOGISTICA PAMPEANA ]</span>
-                    <h4 class="text-white font-bold text-2xl italic">Enlace Logístico Regional</h4>
-                    <p class="text-slate-500 italic leading-relaxed flex-grow">Plataforma dedicada a centralizar accesos directos para faena, logística y compra de hacienda en planta industrial.</p>
-                    <img src="si.jpg" alt="Mockup AgroLogistica" class="rounded-xl border border-slate-800 mt-4 shadow-lg w-full object-cover">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-32 relative text-center">
-        <div class="absolute inset-0 radial-glow z-0"></div>
-        <div class="relative z-10 max-w-4xl mx-auto px-6 space-y-8">
-            <h2 class="text-5xl font-extrabold tracking-tight text-white leading-tight">¿Listo para auditar tu potencial<br>digital en la región?</h2>
-            <p class="text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed italic">
-                Mantenemos una capacidad operativa selectiva por mes. Agenda una auditoría técnica diagnóstica gratuita para evaluar tu rendimiento actual, identificar cuellos de botella y proyectar tu crecimiento.
-            </p>
-            <div class="pt-8 flex flex-wrap justify-center gap-4">
-                <a href="https://wa.me/5492227530526" target="_blank" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-10 py-5 rounded-full font-bold transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(34,211,238,0.3)] text-lg italic">
-                    Contactar Agente GG
-                </a>
-                <a href="#portafolio" class="border border-slate-700 hover:border-cyan-500 px-10 py-5 rounded-full font-bold transition-all text-lg text-white italic">
-                    Revisar Portafolio
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-16 bg-slate-950 border-t border-slate-900 text-center space-y-6">
-        <div class="text-[10px] uppercase tracking-[0.4em] text-slate-700 font-mono">
-            &copy; 2026 GG DESARROLLO WEB &trade; | ESTADO: <span class="text-green-900 font-bold italic underline">SISTEMA OPERATIVO REGIONAL ACTIVO</span>
-        </div>
-        <div class="text-[9px] uppercase tracking-widest text-slate-800 font-mono">
-            INFRAESTRUCTURA PARA: NAVARRO // LOBOS // MERCEDES // LAS HERAS // SUIPACHA
-        </div>
-    </footer>
-
-</body>
-</html>
+      </div>
+    </>
+  );
+}
