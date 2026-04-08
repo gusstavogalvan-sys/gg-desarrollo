@@ -1,154 +1,143 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GG Desarrollo | Ingeniería Digital & Optimización de Ventas B2B</title>
-    <meta name="description" content="Infraestructura web de alto rendimiento y estrategias de Meta Ads para escalar facturación. Consultora boutique para comercios y profesionales de la región.">
+    <title>GG Desarrollo | Ingeniería Digital B2B</title>
     
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        // Negro puro para alinear con tu WhatsApp
+                        fondo: '#000000', 
+                        grisOscuro: '#0a0a0a',
+                        bordeMetal: '#27272a',
+                        cianLaser: '#14b8a6'
                     }
                 }
             }
         }
     </script>
+    <style>
+        /* Detalles de alta gama */
+        body { background-color: #000000; }
+        .kerning-premium { letter-spacing: 0.2em; }
+        .borde-sutil { border: 1px solid #27272a; }
+        .linea-cian { width: 40px; height: 2px; background-color: #14b8a6; margin: 1.5rem auto; }
+    </style>
 </head>
-<body class="bg-slate-950 text-white font-sans selection:bg-cyan-900 selection:text-cyan-200 antialiased min-h-screen flex flex-col">
+<body class="text-zinc-400 font-sans antialiased flex flex-col min-h-screen selection:bg-zinc-800 selection:text-white">
 
-    <nav class="border-b border-zinc-800 bg-slate-950/90 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <img src="logo.png" alt="GG Desarrollo Monolito" class="w-10 h-10 object-contain">
-                <span class="text-2xl font-bold tracking-tight">GG <span class="text-cyan-400">Desarrollo</span></span>
+    <nav class="fixed w-full top-0 bg-fondo/90 backdrop-blur-md border-b borde-sutil z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <img src="logo.png" alt="GG" class="h-10"> 
             </div>
-            <div>
-                <a href="https://wa.me/5492227530526" target="_blank" rel="noopener noreferrer" class="bg-cyan-400 text-slate-950 px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-white transition-all duration-300 shadow-lg shadow-cyan-950/30 inline-block">
-                    Agendar Diagnóstico
-                </a>
-            </div>
+            <a href="https://wa.me/5492227530526" target="_blank" class="text-white text-sm font-bold tracking-widest uppercase hover:text-cianLaser transition-colors">
+                Agendar Diagnóstico &rarr;
+            </a>
         </div>
     </nav>
 
-    <main class="flex-grow max-w-7xl mx-auto px-6 py-16 md:py-24 space-y-24 md:space-y-32">
+    <main class="flex-grow pt-32">
 
-        <section class="text-center space-y-8 mt-8">
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter leading-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-400">
-                Ingeniería Digital que <br class="hidden md:block"><span class="text-cyan-400">Escala tu Facturación.</span>
+        <section class="max-w-5xl mx-auto px-6 pt-16 pb-24 text-center">
+            <p class="text-xs font-bold text-cianLaser tracking-[0.3em] uppercase mb-6">Operaciones B2B | Navarro, Buenos Aires</p>
+            <h1 class="text-5xl md:text-7xl font-black text-white tracking-tighter leading-tight mb-8">
+                Ingeniería Digital de <br> Alto Rendimiento.
             </h1>
-            <p class="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed font-light">
-                Desarrollamos infraestructura web de alto rendimiento y optimizamos la pauta digital. Ayudamos a comercios y profesionales a potenciar sus ventas y automatizar procesos mediante soluciones B2B a medida.
+            <p class="text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed font-light mb-12">
+                Desarrollamos infraestructura web B2B y sistemas de conversión para comercios y profesionales que buscan escalar su facturación con precisión.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-6">
-                <a href="https://wa.me/5492227530526" target="_blank" rel="noopener noreferrer" class="bg-white text-slate-950 px-8 py-4 rounded-xl font-bold text-lg hover:bg-cyan-400 transition-colors">
-                    Contactar Ahora
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="https://wa.me/5492227530526" target="_blank" class="bg-white text-black px-8 py-4 font-bold text-sm tracking-widest uppercase hover:bg-zinc-200 transition-colors">
+                    Iniciar Proyecto
                 </a>
-                <a href="#casos" class="bg-slate-900 border border-zinc-700 text-white px-8 py-4 rounded-xl font-bold text-lg hover:border-cyan-400 hover:text-cyan-400 transition-all">
-                    Ver Casos de Éxito
+                <a href="#soluciones" class="bg-transparent borde-sutil text-white px-8 py-4 font-bold text-sm tracking-widest uppercase hover:border-zinc-500 transition-colors">
+                    Ver Soluciones
                 </a>
             </div>
         </section>
 
-        <section id="casos" class="space-y-12 scroll-mt-24">
-            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight border-l-4 border-cyan-400 pl-4">Caso de Estudio: Catálogo B2B</h2>
-            <div class="grid md:grid-cols-2 gap-10 items-center bg-slate-900/40 p-8 md:p-12 rounded-3xl border border-zinc-800 shadow-xl">
-                <div class="space-y-6">
-                    <p class="text-sm font-bold uppercase tracking-widest text-cyan-400">Restaurante "Los 7 Hermanos"</p>
-                    <h3 class="text-2xl md:text-3xl font-bold leading-snug">Optimización Operativa y Escalamiento de Pauta Digital (Meta Ads).</h3>
-                    <p class="text-zinc-400 leading-relaxed">El caos operativo durante las horas pico de pedidos fue resuelto mediante la implementación de un catálogo dinámico y una infraestructura de "Ingeniería de Flujos".</p>
-                    
-                    <ul class="space-y-4 text-zinc-300 border-t border-zinc-800 pt-6">
-                        <li class="flex items-start gap-3">
-                            <span class="text-cyan-400 font-bold mt-1">✓</span> 
-                            <span>Reducción del 60% en el tiempo de procesamiento de pedidos por WhatsApp.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-cyan-400 font-bold mt-1">✓</span> 
-                            <span>Ticket promedio de venta incrementado gracias al diseño UX orientado a conversión.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-cyan-400 font-bold mt-1">✓</span> 
-                            <span>Optimización del ROAS (Retorno de Inversión) en Meta Ads.</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="bg-slate-950 p-3 rounded-2xl border border-zinc-800 shadow-inner">
-                    <div class="relative aspect-video rounded-xl overflow-hidden bg-zinc-900 flex items-center justify-center">
-                        <img src="sushi.jpg" alt="Infraestructura Catálogo" class="object-cover w-full h-full opacity-80 hover:opacity-100 transition-opacity">
-                        <div class="absolute bottom-4 left-4 p-3 bg-slate-950/80 backdrop-blur-sm border border-cyan-900/50 rounded-lg">
-                            <p class="text-xs font-semibold text-cyan-400 tracking-wide">Automatización de Flujos</p>
-                        </div>
-                    </div>
-                </div>
+        <section class="bg-grisOscuro border-y borde-sutil py-24">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-white mb-6">Convertimos visitas en clientes.</h2>
+                <div class="linea-cian"></div>
+                <p class="text-lg leading-relaxed text-zinc-400 mt-8">
+                    La mayoría de los negocios de la región pierden dinero todos los días porque su presencia online es un folleto estático, no un sistema de ventas. 
+                    No necesitas "una página web estándar". Necesitas arquitectura digital capaz de soportar tráfico, automatizar flujos de WhatsApp y cerrar clientes mientras dormís.
+                </p>
             </div>
         </section>
 
-        <section class="space-y-12">
-            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight inline-block border-l-4 border-cyan-400 pl-4">Soluciones de Ingeniería</h2>
+        <section id="soluciones" class="max-w-7xl mx-auto px-6 py-32">
+            <div class="text-center mb-20">
+                <h2 class="text-xs font-bold text-cianLaser tracking-[0.3em] uppercase mb-4">Nuestra Infraestructura</h2>
+                <p class="text-4xl font-bold text-white">Desarrollamos Soluciones.</p>
+            </div>
+
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-slate-900/30 p-8 rounded-2xl border border-zinc-800 space-y-5 hover:border-cyan-400 transition-colors">
-                    <div class="w-12 h-12 bg-cyan-400/10 rounded-lg flex items-center justify-center border border-cyan-400/20">
-                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold tracking-tight text-white">Infraestructura Web</h3>
-                    <p class="text-zinc-400 leading-relaxed text-sm">Desarrollo de portales dinámicos, ecosistemas B2B y catálogos de alto rendimiento diseñados para la conversión y la escalabilidad operativa.</p>
+                <div class="p-10 border borde-sutil bg-fondo hover:border-zinc-500 transition-colors group">
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-cianLaser transition-colors">Portales Corporativos</h3>
+                    <p class="text-sm leading-relaxed text-zinc-400 mb-6">Desarrollo de sitios institucionales de carga ultra rápida orientados a la captación de leads y posicionamiento de autoridad local.</p>
+                    <p class="text-xs font-bold text-white uppercase tracking-widest">Stack Técnico // React, Next.js</p>
                 </div>
-                <div class="bg-slate-900/30 p-8 rounded-2xl border border-zinc-800 space-y-5 hover:border-cyan-400 transition-colors">
-                    <div class="w-12 h-12 bg-cyan-400/10 rounded-lg flex items-center justify-center border border-cyan-400/20">
-                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold tracking-tight text-white">Meta Ads & Optimización</h3>
-                    <p class="text-zinc-400 leading-relaxed text-sm">Gestión de pauta publicitaria (Facebook/Instagram) con enfoque estricto en ROAS y optimización de embudos de venta digitales.</p>
+                <div class="p-10 border borde-sutil bg-fondo hover:border-zinc-500 transition-colors group">
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-cianLaser transition-colors">Catálogos B2B</h3>
+                    <p class="text-sm leading-relaxed text-zinc-400 mb-6">Sistemas dinámicos de visualización de productos diseñados para agilizar el cierre de ventas por WhatsApp y automatizar la gestión de inventario visual.</p>
+                    <p class="text-xs font-bold text-white uppercase tracking-widest">Stack Técnico // UI/UX Conversión</p>
                 </div>
-                <div class="bg-slate-900/30 p-8 rounded-2xl border border-zinc-800 space-y-5 hover:border-cyan-400 transition-colors">
-                    <div class="w-12 h-12 bg-cyan-400/10 rounded-lg flex items-center justify-center border border-cyan-400/20">
-                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div class="p-10 border borde-sutil bg-fondo hover:border-zinc-500 transition-colors group">
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-cianLaser transition-colors">Meta Ads (Pauta)</h3>
+                    <p class="text-sm leading-relaxed text-zinc-400 mb-6">Inyección de tráfico cualificado mediante campañas publicitarias quirúrgicas en Facebook e Instagram, con enfoque estricto en el Retorno de Inversión (ROAS).</p>
+                    <p class="text-xs font-bold text-white uppercase tracking-widest">Stack Técnico // Meta Business</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="border-t borde-sutil py-32 bg-grisOscuro">
+            <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-xs font-bold text-cianLaser tracking-[0.3em] uppercase mb-4">Caso de Estudio Operativo</h2>
+                    <p class="text-4xl font-bold text-white leading-tight mb-8">Escalamiento del "Restaurante Los 7 Hermanos".</p>
+                    <div class="space-y-6 text-zinc-400">
+                        <p><strong>El Problema:</strong> Caos operativo y pérdida de ventas durante horas pico debido a una gestión ineficiente de pedidos por WhatsApp.</p>
+                        <p><strong>La Solución:</strong> Diseño e implementación de un catálogo dinámico B2B con flujo de checkout optimizado, respaldado por pauta digital segmentada.</p>
+                        <ul class="pt-4 space-y-4 border-t borde-sutil">
+                            <li class="flex items-center gap-3"><span class="text-white font-bold">01 /</span> Reducción del 60% en el tiempo de toma de pedidos.</li>
+                            <li class="flex items-center gap-3"><span class="text-white font-bold">02 /</span> Aumento sostenido del ticket promedio.</li>
+                            <li class="flex items-center gap-3"><span class="text-white font-bold">03 /</span> Optimización radical del ROAS publicitario.</li>
+                        </ul>
                     </div>
-                    <h3 class="text-xl font-bold tracking-tight text-white">Auditoría & Diagnóstico</h3>
-                    <p class="text-zinc-400 leading-relaxed text-sm">Sesiones de consultoría de marca para detectar fallas en la retención de clientes y cuellos de botella en la operación online.</p>
+                </div>
+                <div class="aspect-[4/5] bg-fondo border borde-sutil relative overflow-hidden group">
+                    <img src="sushi.jpg" alt="Caso de Estudio" class="object-cover w-full h-full opacity-60 group-hover:opacity-100 transition-opacity duration-500 grayscale group-hover:grayscale-0">
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="border-t border-zinc-800 bg-slate-950/80 mt-12 py-12">
-        <div class="max-w-7xl mx-auto px-6 text-center space-y-6">
-            <div class="flex flex-col items-center gap-4">
-                <img src="logo.png" alt="GG Desarrollo" class="w-12 h-12 opacity-80 grayscale">
-                <p class="text-sm md:text-base text-zinc-300 font-bold tracking-widest uppercase">
-                    <span class="text-cyan-400">DESARROLLAMOS SOLUCIONES.</span> GENERAMOS RESULTADOS.
-                </p>
-                <p class="text-xs text-zinc-500 uppercase tracking-widest">
-                    Operaciones B2B | Navarro, Buenos Aires
-                </p>
-            </div>
-            <div class="pt-6 border-t border-zinc-800/50">
-                <p class="text-xs text-zinc-600">
-                    &copy; 2026 GG Desarrollo Digital. <span class="text-zinc-800 px-2">|</span> Infraestructura alojada en Vercel.
-                </p>
-            </div>
+    <footer class="bg-fondo border-t borde-sutil py-16">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
+            <img src="logo.png" alt="GG Desarrollo" class="h-12 mb-8">
+            <h3 class="text-xl md:text-2xl font-bold text-white kerning-premium mb-2">GG DESARROLLO</h3>
+            <p class="text-xs font-bold text-zinc-500 tracking-[0.2em] mb-12 uppercase">
+                Desarrollamos Soluciones. Generamos Resultados.
+            </p>
+            <p class="text-xs text-zinc-600 font-light">
+                © 2026 GG Desarrollo Digital. Navarro, Buenos Aires.
+            </p>
         </div>
     </footer>
 
 </body>
 </html>
-  
-                     
-              
-               
-                  
-            
-        
