@@ -35,28 +35,30 @@
             }
         }
     </script>
-    <style>
+        <style>
         body { background-color: #020617; }
         .radial-glow {
             background: radial-gradient(circle, rgba(34,211,238,0.08) 0%, rgba(2,6,23,0) 70%);
         }
-    </style>
+        /* LA MAGIA PARA EL MENÚ MOBILE */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+   </style>
 </head>
 <body class="font-sans text-slate-300 antialiased">
 
-    <nav class="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-start items-center">
-            <div class="flex gap-x-4 md:gap-x-12 text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold">
-                <a href="#ingenieria" class="text-slate-500 hover:text-cyan-400 transition-colors">Ingeniería</a>
-                <a href="#realidad" class="text-slate-500 hover:text-cyan-400 transition-colors">Realidad Regional</a>
-                <a href="#servicios" class="text-slate-500 hover:text-cyan-400 transition-colors">Servicios</a>
-                <a href="#portafolio" class="text-slate-500 hover:text-cyan-400 transition-colors">Portafolio</a>
-                <a href="https://wa.me/5492227530526" target="_blank" class="text-cyan-400 hover:text-white transition-colors border-b border-cyan-400/30 pb-1">Consultar</a>
+        <nav class="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-start items-center overflow-hidden">
+            <div class="flex gap-6 md:gap-12 text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold overflow-x-auto whitespace-nowrap w-full no-scrollbar pb-1">
+                <a href="#ingenieria" class="text-slate-500 hover:text-cyan-400 transition-colors shrink-0">Ingeniería</a>
+                <a href="#realidad" class="text-slate-500 hover:text-cyan-400 transition-colors shrink-0">Realidad Regional</a>
+                <a href="#servicios" class="text-slate-500 hover:text-cyan-400 transition-colors shrink-0">Servicios</a>
+                <a href="#portafolio" class="text-slate-500 hover:text-cyan-400 transition-colors shrink-0">Portafolio</a>
+                <a href="https://wa.me/5492227530526" target="_blank" class="text-cyan-400 hover:text-white transition-colors border-b border-cyan-400/30 pb-1 shrink-0">Consultar</a>
             </div>
         </div>
     </nav>
-
-    <header id="ingenieria" class="relative min-h-screen flex flex-col justify-center items-center px-6 pt-24 overflow-hidden scroll-mt-24">
+10p  <header id="ingenieria" class="relative min-h-screen flex flex-col justify-center items-center px-6 pt-24 overflow-hidden scroll-mt-24">
         <div class="absolute inset-0 radial-glow z-0"></div>
         <div class="relative z-10 text-center space-y-8 max-w-5xl">
             <div class="inline-block border border-cyan-800 bg-cyan-950/20 px-4 py-1 rounded-full">
