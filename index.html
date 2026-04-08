@@ -3,141 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GG Desarrollo | Ingeniería Digital B2B</title>
+    <title>GG Desarrollo | Consultora de Ingeniería Digital B2B</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    fontFamily: { 
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syne', 'sans-serif']
+                    },
                     colors: {
-                        // Negro puro para alinear con tu WhatsApp
-                        fondo: '#000000', 
-                        grisOscuro: '#0a0a0a',
-                        bordeMetal: '#27272a',
-                        cianLaser: '#14b8a6'
+                        negroAbsoluto: '#000000',
+                        grisMeta: '#0a0a0a',
+                        cianLaser: '#14b8a6',
+                        plata: '#e4e4e7'
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Detalles de alta gama */
-        body { background-color: #000000; }
-        .kerning-premium { letter-spacing: 0.2em; }
-        .borde-sutil { border: 1px solid #27272a; }
-        .linea-cian { width: 40px; height: 2px; background-color: #14b8a6; margin: 1.5rem auto; }
+        body { background-color: #000000; color: #a1a1aa; }
+        .text-glow { text-shadow: 0 0 15px rgba(20, 184, 166, 0.3); }
+        .border-premium { border: 1px solid #18181b; }
+        .kerning-logo { letter-spacing: 0.3em; }
     </style>
 </head>
-<body class="text-zinc-400 font-sans antialiased flex flex-col min-h-screen selection:bg-zinc-800 selection:text-white">
+<body class="antialiased selection:bg-cyan-900 selection:text-white">
 
-    <nav class="fixed w-full top-0 bg-fondo/90 backdrop-blur-md border-b borde-sutil z-50">
+    <nav class="fixed w-full top-0 bg-negroAbsoluto/80 backdrop-blur-xl border-b border-zinc-900 z-50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <img src="logo.png" alt="GG" class="h-10"> 
+            <div class="flex items-center gap-3">
+                <img src="logo.png" alt="GG" class="h-8"> <span class="font-display font-extrabold text-xl text-white tracking-tighter">GG <span class="text-cianLaser">DESARROLLO</span></span>
             </div>
-            <a href="https://wa.me/5492227530526" target="_blank" class="text-white text-sm font-bold tracking-widest uppercase hover:text-cianLaser transition-colors">
-                Agendar Diagnóstico &rarr;
-            </a>
+            <div class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
+                <a href="#ingenieria" class="hover:text-white transition-colors">Ingeniería</a>
+                <a href="#portafolio" class="hover:text-white transition-colors">Portafolio</a>
+                <a href="https://wa.me/5492227530526" target="_blank" class="bg-white text-black px-4 py-2 hover:bg-cianLaser transition-colors">Agendar Auditoría</a>
+            </div>
         </div>
     </nav>
 
-    <main class="flex-grow pt-32">
-
-        <section class="max-w-5xl mx-auto px-6 pt-16 pb-24 text-center">
-            <p class="text-xs font-bold text-cianLaser tracking-[0.3em] uppercase mb-6">Operaciones B2B | Navarro, Buenos Aires</p>
-            <h1 class="text-5xl md:text-7xl font-black text-white tracking-tighter leading-tight mb-8">
-                Ingeniería Digital de <br> Alto Rendimiento.
-            </h1>
-            <p class="text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed font-light mb-12">
-                Desarrollamos infraestructura web B2B y sistemas de conversión para comercios y profesionales que buscan escalar su facturación con precisión.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="https://wa.me/5492227530526" target="_blank" class="bg-white text-black px-8 py-4 font-bold text-sm tracking-widest uppercase hover:bg-zinc-200 transition-colors">
-                    Iniciar Proyecto
-                </a>
-                <a href="#soluciones" class="bg-transparent borde-sutil text-white px-8 py-4 font-bold text-sm tracking-widest uppercase hover:border-zinc-500 transition-colors">
-                    Ver Soluciones
-                </a>
-            </div>
-        </section>
-
-        <section class="bg-grisOscuro border-y borde-sutil py-24">
-            <div class="max-w-4xl mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold text-white mb-6">Convertimos visitas en clientes.</h2>
-                <div class="linea-cian"></div>
-                <p class="text-lg leading-relaxed text-zinc-400 mt-8">
-                    La mayoría de los negocios de la región pierden dinero todos los días porque su presencia online es un folleto estático, no un sistema de ventas. 
-                    No necesitas "una página web estándar". Necesitas arquitectura digital capaz de soportar tráfico, automatizar flujos de WhatsApp y cerrar clientes mientras dormís.
+    <main>
+        <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-900/10 via-transparent to-transparent"></div>
+            <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+                <p class="text-cianLaser font-bold tracking-[0.4em] uppercase text-xs mb-8">Consultora de Infraestructura Digital</p>
+                <h1 class="text-6xl md:text-8xl font-display font-extrabold text-white tracking-tighter leading-none mb-10">
+                    Sistemas que <br><span class="text-glow">Construyen Negocios.</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed mb-12">
+                    No hacemos "páginas web". Diseñamos arquitectura digital de alto rendimiento y estrategias de adquisición de clientes para empresas que exigen resultados, no promesas.
                 </p>
-            </div>
-        </section>
-
-        <section id="soluciones" class="max-w-7xl mx-auto px-6 py-32">
-            <div class="text-center mb-20">
-                <h2 class="text-xs font-bold text-cianLaser tracking-[0.3em] uppercase mb-4">Nuestra Infraestructura</h2>
-                <p class="text-4xl font-bold text-white">Desarrollamos Soluciones.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-10 border borde-sutil bg-fondo hover:border-zinc-500 transition-colors group">
-                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-cianLaser transition-colors">Portales Corporativos</h3>
-                    <p class="text-sm leading-relaxed text-zinc-400 mb-6">Desarrollo de sitios institucionales de carga ultra rápida orientados a la captación de leads y posicionamiento de autoridad local.</p>
-                    <p class="text-xs font-bold text-white uppercase tracking-widest">Stack Técnico // React, Next.js</p>
-                </div>
-                <div class="p-10 border borde-sutil bg-fondo hover:border-zinc-500 transition-colors group">
-                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-cianLaser transition-colors">Catálogos B2B</h3>
-                    <p class="text-sm leading-relaxed text-zinc-400 mb-6">Sistemas dinámicos de visualización de productos diseñados para agilizar el cierre de ventas por WhatsApp y automatizar la gestión de inventario visual.</p>
-                    <p class="text-xs font-bold text-white uppercase tracking-widest">Stack Técnico // UI/UX Conversión</p>
-                </div>
-                <div class="p-10 border borde-sutil bg-fondo hover:border-zinc-500 transition-colors group">
-                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-cianLaser transition-colors">Meta Ads (Pauta)</h3>
-                    <p class="text-sm leading-relaxed text-zinc-400 mb-6">Inyección de tráfico cualificado mediante campañas publicitarias quirúrgicas en Facebook e Instagram, con enfoque estricto en el Retorno de Inversión (ROAS).</p>
-                    <p class="text-xs font-bold text-white uppercase tracking-widest">Stack Técnico // Meta Business</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-6">
+                    <a href="https://wa.me/5492227530526" target="_blank" class="bg-white text-black px-10 py-5 font-bold text-sm tracking-widest uppercase hover:bg-cianLaser transition-all transform hover:scale-105">
+                        Iniciar Consultoría
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section class="border-t borde-sutil py-32 bg-grisOscuro">
-            <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+        <section id="ingenieria" class="py-32 bg-grisMeta border-y border-zinc-900">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
                 <div>
-                    <h2 class="text-xs font-bold text-cianLaser tracking-[0.3em] uppercase mb-4">Caso de Estudio Operativo</h2>
-                    <p class="text-4xl font-bold text-white leading-tight mb-8">Escalamiento del "Restaurante Los 7 Hermanos".</p>
-                    <div class="space-y-6 text-zinc-400">
-                        <p><strong>El Problema:</strong> Caos operativo y pérdida de ventas durante horas pico debido a una gestión ineficiente de pedidos por WhatsApp.</p>
-                        <p><strong>La Solución:</strong> Diseño e implementación de un catálogo dinámico B2B con flujo de checkout optimizado, respaldado por pauta digital segmentada.</p>
-                        <ul class="pt-4 space-y-4 border-t borde-sutil">
-                            <li class="flex items-center gap-3"><span class="text-white font-bold">01 /</span> Reducción del 60% en el tiempo de toma de pedidos.</li>
-                            <li class="flex items-center gap-3"><span class="text-white font-bold">02 /</span> Aumento sostenido del ticket promedio.</li>
-                            <li class="flex items-center gap-3"><span class="text-white font-bold">03 /</span> Optimización radical del ROAS publicitario.</li>
-                        </ul>
+                    <h2 class="text-xs font-bold text-cianLaser tracking-[0.3em] uppercase mb-6">Filosofía de Trabajo</h2>
+                    <h3 class="text-4xl md:text-5xl font-display font-extrabold text-white leading-tight mb-8">La brecha entre un folleto y una herramienta.</h3>
+                    <p class="text-lg leading-relaxed mb-6">
+                        El 90% de las webs locales son estáticas. No capturan datos, no automatizan ventas y no escalan. Nuestra ingeniería se enfoca en tres pilares críticos:
+                    </p>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <span class="text-cianLaser font-bold">01/</span>
+                            <span><strong>Velocidad de Carga Crítica:</strong> Infraestructura optimizada para que el cliente no se vaya antes de que la página abra.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-cianLaser font-bold">02/</span>
+                            <span><strong>Sistemas de Conversión:</strong> Flujos diseñados para llevar al usuario del interés a la compra o consulta directa en segundos.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-cianLaser font-bold">03/</span>
+                            <span><strong>Escalabilidad B2B:</strong> Herramientas que crecen con tu inventario y tu volumen de facturación.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-negroAbsoluto p-8 border border-zinc-800 rounded-sm">
+                        <p class="text-4xl font-display font-bold text-white mb-2">60%</p>
+                        <p class="text-xs uppercase tracking-widest text-zinc-500">Más eficiencia operativa</p>
+                    </div>
+                    <div class="bg-negroAbsoluto p-8 border border-zinc-800 rounded-sm mt-8">
+                        <p class="text-4xl font-display font-bold text-white mb-2">+ROAS</p>
+                        <p class="text-xs uppercase tracking-widest text-zinc-500">Retorno publicitario</p>
                     </div>
                 </div>
-                <div class="aspect-[4/5] bg-fondo border borde-sutil relative overflow-hidden group">
-                    <img src="sushi.jpg" alt="Caso de Estudio" class="object-cover w-full h-full opacity-60 group-hover:opacity-100 transition-opacity duration-500 grayscale group-hover:grayscale-0">
+            </div>
+        </section>
+
+        <section id="portafolio" class="py-32 max-w-7xl mx-auto px-6">
+            <div class="mb-24">
+                <h2 class="text-xs font-bold text-cianLaser tracking-[0.3em] uppercase mb-4 text-center">Evidencia Técnica</h2>
+                <h3 class="text-5xl md:text-6xl font-display font-extrabold text-white text-center tracking-tighter">Proyectos de Alto Impacto.</h3>
+            </div>
+
+            <div class="space-y-40">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 md:order-1">
+                        <h4 class="text-xs font-bold text-zinc-500 tracking-[0.2em] uppercase mb-4">Logística B2B // Ingeniería de Sistemas</h4>
+                        <h5 class="text-4xl font-display font-bold text-white mb-6 uppercase">AgroLogística Pampeana</h5>
+                        <p class="text-lg leading-relaxed mb-8">
+                            Desarrollo de una plataforma de gestión logística centrada en la transparencia operativa. Implementamos un sistema de tracking y visualización de activos que eliminó los cuellos de botella en la comunicación entre proveedores y clientes.
+                        </p>
+                        <div class="border-l-2 border-cianLaser pl-6 py-2">
+                            <p class="italic text-zinc-300">"Automatización de procesos críticos y digitalización total de la flota."</p>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 bg-zinc-900 aspect-video relative overflow-hidden group">
+                        <img src="agrologistica.jpg" alt="AgroLogística Pampeana" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 opacity-50 group-hover:opacity-100">
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="bg-zinc-900 aspect-video relative overflow-hidden group">
+                        <img src="apexmotos.jpg" alt="Apex Motos" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 opacity-50 group-hover:opacity-100">
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-zinc-500 tracking-[0.2em] uppercase mb-4">Retail de Alto Valor // E-Catalog</h4>
+                        <h5 class="text-4xl font-display font-bold text-white mb-6 uppercase">Apex Motos</h5>
+                        <p class="text-lg leading-relaxed mb-8">
+                            Diseño de un catálogo dinámico interactivo para vehículos de alta gama. El objetivo fue transformar una simple lista de precios en una experiencia de usuario que impulse la generación de leads cualificados hacia el canal de ventas.
+                        </p>
+                        <div class="border-l-2 border-cianLaser pl-6 py-2">
+                            <p class="italic text-zinc-300">"Visualización dinámica de inventario y optimización de captura de prospectos."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 md:order-1">
+                        <h4 class="text-xs font-bold text-zinc-500 tracking-[0.2em] uppercase mb-4">Gastronomía & Ads // Conversión Directa</h4>
+                        <h5 class="text-4xl font-display font-bold text-white mb-6 uppercase">Burger & Grill</h5>
+                        <p class="text-lg leading-relaxed mb-8">
+                            Integración de infraestructura web con estrategias de Meta Ads quirúrgicas. Creamos un embudo de ventas que redujo drásticamente el costo de adquisición de clientes y automatizó el flujo de pedidos hacia la cocina.
+                        </p>
+                        <div class="border-l-2 border-cianLaser pl-6 py-2">
+                            <p class="italic text-zinc-300">"Maximizando el ROAS mediante embudos de alta conversión."</p>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 bg-zinc-900 aspect-video relative overflow-hidden group">
+                        <img src="burgergrill.jpg" alt="Burger & Grill" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 opacity-50 group-hover:opacity-100">
+                    </div>
                 </div>
             </div>
         </section>
 
+        <section class="bg-white py-24 text-center">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-4xl md:text-6xl font-display font-extrabold text-black mb-10 tracking-tighter">¿Listo para escalar su infraestructura?</h2>
+                <a href="https://wa.me/5492227530526" target="_blank" class="inline-block bg-black text-white px-12 py-6 font-bold text-sm tracking-widest uppercase hover:bg-zinc-800 transition-all">
+                    Agendar Auditoría Gratuita
+                </a>
+            </div>
+        </section>
     </main>
 
-    <footer class="bg-fondo border-t borde-sutil py-16">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
-            <img src="logo.png" alt="GG Desarrollo" class="h-12 mb-8">
-            <h3 class="text-xl md:text-2xl font-bold text-white kerning-premium mb-2">GG DESARROLLO</h3>
-            <p class="text-xs font-bold text-zinc-500 tracking-[0.2em] mb-12 uppercase">
-                Desarrollamos Soluciones. Generamos Resultados.
-            </p>
-            <p class="text-xs text-zinc-600 font-light">
-                © 2026 GG Desarrollo Digital. Navarro, Buenos Aires.
-            </p>
+    <footer class="py-20 border-t border-zinc-900">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <img src="logo.png" alt="GG Desarrollo" class="h-10 mx-auto mb-8 opacity-50">
+            <p class="font-display font-bold text-white tracking-[0.3em] uppercase mb-4">GG DESARROLLO</p>
+            <p class="text-xs font-bold text-zinc-500 tracking-widest mb-12 uppercase">Desarrollamos Soluciones. Generamos Resultados.</p>
+            <div class="text-xs text-zinc-600 font-medium">
+                © 2026 GG DESARROLLO DIGITAL | NAVARRO, BUENOS AIRES | OPERANDO EN VERCEL
+            </div>
         </div>
     </footer>
 
 </body>
 </html>
+
